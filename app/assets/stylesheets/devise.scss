@@ -1,0 +1,180 @@
+/* Login */
+.login-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: linear-gradient(to top right, cadetblue, steelblue);
+    width: 100%;
+    height: 100%;
+}
+
+.login-col {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: bisque;
+}
+
+.login-col h1 {
+    color: bisque;
+    margin-top: 0;
+    font-size: 38px;
+}
+
+.login-col em {
+    color: #FC600A;
+}
+
+.login-col i {
+    color: #FC600A;
+}
+
+.login-col a {
+    color: #FC600A;
+}
+
+.login-col input {
+    color: steelblue;
+}
+
+.login-col input::placeholder {
+    color: steelblue;
+}
+
+.login-col .form-control {
+    color: steelblue;
+}
+
+/* Signup */
+.signup-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: linear-gradient(to top right, cadetblue, steelblue);
+    width: 100%;
+    height: 100%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+.signup-col {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: bisque;
+}
+
+.signup-col h1 {
+    color: bisque;
+    margin-top: 0;
+    font-size: 38px;
+}
+
+.signup-col em {
+    color: #FC600A;
+}
+
+.signup-col i {
+    color: #FC600A;
+}
+
+.signup-col a {
+    color: #FC600A;
+}
+
+.signup-col input {
+    color: steelblue;
+}
+
+.signup-col input::placeholder {
+    color: steelblue;
+}
+
+.signup-col .form-control {
+    color: steelblue;
+}
+
+/* Edit */
+.edit-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: linear-gradient(to top right, cadetblue, steelblue);
+    width: 100%;
+    height: 100%;
+}
+
+.edit-col {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: bisque;
+}
+
+.edit-col h1 {
+    color: bisque;
+    margin-top: 0;
+    font-size: 38px;
+}
+
+.edit-col em {
+    color: #FC600A;
+}
+
+.edit-col i {
+    color: #FC600A;
+}
+
+.edit-col a {
+    color: #FC600A;
+}
+
+.edit-col input {
+    color: steelblue;
+}
+
+.edit-col input::placeholder {
+    color: steelblue;
+}
+
+.edit-col .form-control {
+    color: steelblue;
+}
+
+@media only screen and (max-width: 768px), only screen and (max-height: 868px) {
+    /* Login */
+    .login-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-image: linear-gradient(to top right, cadetblue, steelblue);
+        width: 100%;
+        height: 100%;
+        padding-top: 200px;
+        padding-bottom: 200px;
+    }
+
+    /* Signup */
+    .signup-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-image: linear-gradient(to top right, cadetblue, steelblue);
+        width: 100%;
+        height: 100%;
+        padding-top: 380px;
+        padding-bottom: 380px;
+    }
+
+    /* Edit */
+    .edit-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-image: linear-gradient(to top right, cadetblue, steelblue);
+        width: 100%;
+        height: 100%;
+        padding-top: 480px;
+        padding-bottom: 480px;
+    }
+}
