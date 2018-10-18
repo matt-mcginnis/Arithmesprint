@@ -1,0 +1,13 @@
+<h1>Headquarters#main</h1>
+
+<%= current_user.pending_friend_requests %>
+
+<ul>
+    <% current_user.pending_friend_requests.each do |request| %>
+        <li>
+            <%= User.find(request).name %>
+            <%= link_to "Accept", friend_accept_path(id: request) %>
+        </li>
+        <br>
+    <% end %>
+</ul>

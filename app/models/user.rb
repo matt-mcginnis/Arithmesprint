@@ -4,5 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  serialize :friends, Array
+  serialize :pending_friend_requests, Array
+  serialize :pending_friend_invitations, Array
+  
   mount_uploader :avatar, AvatarUploader
 end
