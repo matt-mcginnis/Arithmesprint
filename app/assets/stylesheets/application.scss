@@ -20,15 +20,98 @@
 
  /* External Styling */
  @import 'devise';
+ @import 'headquarters';
+
+:root {
+    --color-1: ghostwhite;
+    --color-2: bisque;
+    --color-3: #FC600A;
+    --color-4: cadetblue;
+    --color-5: steelblue;
+    --color-6: lightslategray;
+    --color-7: slategray;
+    --color-8: darkslategray;
+}
 
  html, body {
      height: 100%;
+     background-image: linear-gradient(to top right, cadetblue, steelblue);
  }
 
 nav.navbar.navbar-default {
     margin: 0;
     padding-top: 10px;
     padding-bottom: 10px;
+    border-style: none;
+    border-radius: 0;
+    background-color: slategray;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: bisque;
+}
+
+.navbar-default .navbar-nav > li > a:hover {
+    color: #FC600A;
+}
+
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+    color: #FC600A;
+    background-color: slategray;
+    padding-bottom: 0;
+    padding-top: 15px;
+}
+
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+    color: #FC600A;
+}
+
+.navbar-nav > li > .dropdown-menu {
+    padding: 0;
+    background-color: ghostwhite;
+}
+
+.dropdown-menu > li > a {
+    color: slategray;
+}
+
+.dropdown-menu > li > a:hover {
+    color: slategray;
+    background-color: bisque;
+}
+
+.navbar-default .navbar-brand {
+    color: bisque;
+}
+
+input#user_email.form-control {
+    background-color: ghostwhite;
+}
+
+input#user_password.form-control {
+    background-color: ghostwhite;
+}
+
+input#search.form-control.mr-sm-2 {
+    background-color: ghostwhite;
+}
+
+input#search.form-control.mr-sm-2::placeholder {
+    color: lightslategray;
+}
+
+input.btn.btn-secondary.my-2.my-sm-0 {
+    color: slategray;
+    background-color: bisque;
+}
+
+input.btn.btn-secondary.my-2.my-sm-0:hover {
+    color: darkslategray;
+    background-color: #FC600A;
+}
+
+.navbar-default .navbar-brand:hover {
+    color: #FC600A;
 }
 
 .separator {
