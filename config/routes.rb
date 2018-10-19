@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'friend_accept' => 'headquarters#friend_accept'
   get 'friend_decline' => 'headquarters#friend_decline'
   get 'unfriend' => 'headquarters#unfriend'
+  get 'requests_and_invitations' => 'headquarters#requests_and_invitations'
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 

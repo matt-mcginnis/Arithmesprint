@@ -20,32 +20,40 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <%= form_tag(all_users_path, :method => "get", id: "search-form", class: "navbar-form navbar-left") do %>
-                        <div class="form-group">
-                            <%= text_field_tag :search, params[:search], placeholder: "Search...", class: "form-control mr-sm-2" %>
-                        </div>
-                        <%= submit_tag "Search", :name => nil, class: "btn btn-secondary my-2 my-sm-0" %>
-                    <% end %>
+                    <div class="form-group">
+                        <%= text_field_tag :search, params[:search], placeholder: "Search...", class: "form-control mr-sm-2" %>
+                    </div>
+                    <%= submit_tag "Search", :name => nil, class: "btn btn-secondary my-2 my-sm-0" %>
+                <% end %>
 
-                    <ul class="nav navbar-nav navbar-right">
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown<span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                              <% if user_signed_in? %>
-                                  <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
-                                  <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
-                                  <% else %>
-                                  <li><%= link_to "Sign In", new_user_session_path %></li>
-                                  <li><%= link_to "Sign Up", new_user_registration_path %></li>
-                              <% end %>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-                <!-- /.navbar-collapse -->
+                <ul class="nav navbar-nav navbar-right">
+                    <% if current_user != nil && current_user.pending_friend_requests.empty? == false %>
+                        <li><%= link_to "View Requests", requests_and_invitations_path %></li>
+                    <% end %>
+                    <% if current_user != nil && current_user.pending_friend_invitations.empty? == false %>
+                        <li><%= link_to "View Invitations", requests_and_invitations_path %></li>
+                    <% end %>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                            <% if user_signed_in? %>
+                                <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
+                                <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+                            <% else %>
+                                <li><%= link_to "Sign In", new_user_session_path %></li>
+                                <li><%= link_to "Sign Up", new_user_registration_path %></li>
+                            <% end %>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
             </div>
-            <!-- /.container-fluid -->
-        </nav>
-        <div class="separator"></div>
-        <%= yield %>
-    </body>
+        <!-- /.navbar-collapse -->
+        </div>
+    <!-- /.container-fluid -->
+    </nav>
+<div class="separator"></div>
+<%= yield %>
+</body>
 </html>
