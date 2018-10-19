@@ -1,13 +1,33 @@
-<h1>Headquarters#main</h1>
+<div class="container">
 
-<%= current_user.pending_friend_requests %>
+    <h1>
+        Welcome to Headquarters
+        <%= current_user.name %>!
+    </h1>
 
-<ul>
-    <% current_user.pending_friend_requests.each do |request| %>
-        <li>
-            <%= User.find(request).name %>
-            <%= link_to "Accept", friend_accept_path(id: request) %>
-        </li>
-        <br>
-    <% end %>
-</ul>
+    <div class="row">
+        <div class="col-md-6">
+            <h2>Pending Friend Requests</h2>
+            <ul>
+                <% current_user.pending_friend_requests.each do |request| %>
+                    <li>
+                        <%= User.find(request).name %>
+                        <%= link_to "Accept", friend_accept_path(id: request) %>
+                        <%= link_to "Decline", friend_decline_path(id: request) %>
+                    </li>
+                    <br>
+                <% end %>
+            </ul>
+        </div>
+        <div class="col-md-6">
+            <h2>Friends List</h2>
+
+            <ul>
+                <% current_user.friends.each do |friend| %>
+                    <li><%= User.find(friend).name %></li>
+                    <br>
+                <% end %>
+            </ul>
+        </div>
+    </div>
+</div>

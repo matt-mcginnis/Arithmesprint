@@ -7,4 +7,8 @@ class ApplicationController < ActionController::Base
         devise_parameter_sanitizer.permit(:sign_up, keys: [:username, :name, :location, :bio, :friends, :avatar, :pending_friend_requests, :pending_friend_invitations])
         devise_parameter_sanitizer.permit(:account_update, keys: [:username, :name, :location, :bio, :friends, :avatar, :pending_friend_requests, :pending_friend_invitations])
     end
+
+    def all_users
+        @all_users = User.all
+    end
 end
