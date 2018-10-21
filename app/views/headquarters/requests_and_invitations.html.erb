@@ -1,30 +1,34 @@
-<div class="container">
+<div class="container" id="requests_and_invitations">
 
     <div class="row">
 
-        <div class="col-md-6">
+        <div class="col-md-6" id="requests_and_invitations">
             <h2>Pending Friend Requests</h2>
 
             <ul>
                 <% current_user.pending_friend_requests.each do |request| %>
-                    <li><%= User.find(request).name %></li>
                     <li>
-                        <%= link_to "Accept", friend_accept_path(id: request) %>
-                        <%= link_to "Decline", friend_decline_path(id: request) %>
+                        <div class="well" id="requests">
+                            <p>Request from <strong><%= link_to User.find(request).name, show_user_path(id: request) %></strong></p>
+                            <%= link_to "Accept", friend_accept_path(id: request), class: "btn btn-success" %>
+                            <%= link_to "Decline", friend_decline_path(id: request), class: "btn btn-danger" %>
+                        </div>
                     </li>
-                    <br>
                 <% end %>
             </ul>
         </div>
 
-        <div class="col-md-6">
+        <div class="col-md-6" id="requests_and_invitations">
             <h2>Pending Friend Invites</h2>
 
             <ul>
                 <% current_user.pending_friend_invitations.each do |invitation| %>
-                    <li><%= User.find(invitation).name %></li>
-                    <li> Response Currently Pending </li>
-                    <br>
+                    <li>
+                        <div class="well" id="invitations">
+                            <p>Invitation to <strong><%= link_to User.find(invitation).name, show_user_path(id: invitation) %></strong></p>
+                            <p>Response Currently Pending</p>
+                        </div>
+                    </li>
                 <% end %>
             </ul>
         </div>

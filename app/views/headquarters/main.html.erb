@@ -1,12 +1,22 @@
-<div class="container">
-
+<div class="jumbotron">
     <h1>
         Welcome to Headquarters
+        <br>
         <%= current_user.name %>!
     </h1>
+</div>
 
+<div class="separator"></div>
+
+<div class="container">
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-2">
+            <h2>Personal Info</h2>
+        </div>
+        <div class="col-md-7">
+            <h2 id="feed">What People are Saying</h2>
+        </div>
+        <div class="col-md-3" id="main_right">
             <h2>Pending Friend Requests</h2>
             <ul>
                 <% current_user.pending_friend_requests.each do |request| %>
@@ -18,8 +28,7 @@
                     <br>
                 <% end %>
             </ul>
-        </div>
-        <div class="col-md-6">
+
             <h2>Friends List</h2>
 
             <ul>

@@ -35,7 +35,7 @@
 
  html, body {
      height: 100%;
-     background-image: linear-gradient(to top right, cadetblue, steelblue);
+     background-image: linear-gradient(to top right, var(--color-4), var(--color-5));
  }
 
 nav.navbar.navbar-default {
@@ -44,78 +44,84 @@ nav.navbar.navbar-default {
     padding-bottom: 10px;
     border-style: none;
     border-radius: 0;
-    background-color: slategray;
+    background-color: var(--color-8);
 }
 
 .navbar-default .navbar-nav > li > a {
-    color: bisque;
+    color: var(--color-2);
 }
 
 .navbar-default .navbar-nav > li > a:hover {
-    color: #FC600A;
+    color: var(--color-3);
 }
 
 .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
-    color: #FC600A;
-    background-color: slategray;
+    color: var(--color-3);
+    background-color: var(--color-7);
     padding-bottom: 0;
     padding-top: 15px;
 }
 
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
-    color: #FC600A;
+    color: var(--color-3);
 }
 
 .navbar-nav > li > .dropdown-menu {
     padding: 0;
-    background-color: ghostwhite;
+    background-color: var(--color-1);
 }
 
 .dropdown-menu > li > a {
-    color: slategray;
+    color: var(--color-7);
 }
 
 .dropdown-menu > li > a:hover {
-    color: slategray;
-    background-color: bisque;
+    color: var(--color-7);
+    background-color: var(--color-2);
 }
 
 .navbar-default .navbar-brand {
-    color: bisque;
+    color: var(--color-2);
 }
 
 input#user_email.form-control {
-    background-color: ghostwhite;
+    background-color: var(--color-1);
 }
 
 input#user_password.form-control {
-    background-color: ghostwhite;
+    background-color: var(--color-1);
 }
 
 input#search.form-control.mr-sm-2 {
-    background-color: ghostwhite;
+    background-color: var(--color-1);
 }
 
 input#search.form-control.mr-sm-2::placeholder {
-    color: lightslategray;
+    color: var(--color-6);
 }
 
 input.btn.btn-secondary.my-2.my-sm-0 {
-    color: slategray;
-    background-color: bisque;
+    color: var(--color-7);
+    background-color: var(--color-2);
 }
 
 input.btn.btn-secondary.my-2.my-sm-0:hover {
-    color: darkslategray;
-    background-color: #FC600A;
+    color: var(--color-8);
+    background-color: var(--color-3);
 }
 
 .navbar-default .navbar-brand:hover {
-    color: #FC600A;
+    color: var(--color-3);
 }
 
 .separator {
     height: 5px;
     width: 100%;
-    background-color: #FC600A;
+    background-color: var(--color-3);
+}
+
+@media only screen and (max-width: 850px) {
+    #navbar-requests, #navbar-invitations {
+        display: none;
+    }
 }

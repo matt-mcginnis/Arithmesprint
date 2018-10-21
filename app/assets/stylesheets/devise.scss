@@ -1,3 +1,14 @@
+:root {
+    --color-1: ghostwhite;
+    --color-2: bisque;
+    --color-3: #FC600A;
+    --color-4: cadetblue;
+    --color-5: steelblue;
+    --color-6: lightslategray;
+    --color-7: slategray;
+    --color-8: darkslategray;
+}
+
 /* Login */
 .login-container {
     display: flex;
@@ -11,37 +22,37 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: bisque;
+    color: var(--color-2);
 }
 
 .login-col h1 {
-    color: bisque;
+    color: var(--color-2);
     margin-top: 0;
     font-size: 38px;
 }
 
 .login-col em {
-    color: #FC600A;
+    color: var(--color-3);
 }
 
 .login-col i {
-    color: #FC600A;
+    color: var(--color-3);
 }
 
 .login-col a {
-    color: #FC600A;
+    color: var(--color-3);
 }
 
 .login-col input {
-    color: steelblue;
+    color: var(--color-5);
 }
 
 .login-col input::placeholder {
-    color: steelblue;
+    color: var(--color-5);
 }
 
 .login-col .form-control {
-    color: steelblue;
+    color: var(--color-5);
 }
 
 /* Signup */
@@ -59,37 +70,37 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: bisque;
+    color: var(--color-2);
 }
 
 .signup-col h1 {
-    color: bisque;
+    color: var(--color-2);
     margin-top: 0;
     font-size: 38px;
 }
 
 .signup-col em {
-    color: #FC600A;
+    color: var(--color-3);
 }
 
 .signup-col i {
-    color: #FC600A;
+    color: var(--color-3);
 }
 
 .signup-col a {
-    color: #FC600A;
+    color: var(--color-3);
 }
 
 .signup-col input {
-    color: steelblue;
+    color: var(--color-5);
 }
 
 .signup-col input::placeholder {
-    color: steelblue;
+    color: var(--color-5);
 }
 
 .signup-col .form-control {
-    color: steelblue;
+    color: var(--color-5);
 }
 
 /* Edit */
@@ -105,37 +116,37 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: bisque;
+    color: var(--color-2);
 }
 
 .edit-col h1 {
-    color: bisque;
+    color: var(--color-2);
     margin-top: 0;
     font-size: 38px;
 }
 
 .edit-col em {
-    color: #FC600A;
+    color: var(--color-3);
 }
 
 .edit-col i {
-    color: #FC600A;
+    color: var(--color-3);
 }
 
 .edit-col a {
-    color: #FC600A;
+    color: var(--color-3);
 }
 
 .edit-col input {
-    color: steelblue;
+    color: var(--color-5);
 }
 
 .edit-col input::placeholder {
-    color: steelblue;
+    color: var(--color-5);
 }
 
 .edit-col .form-control {
-    color: steelblue;
+    color: var(--color-5);
 }
 
 @media only screen and (max-width: 768px), only screen and (max-height: 868px) {
