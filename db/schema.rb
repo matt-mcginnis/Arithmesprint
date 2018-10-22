@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_21_222236) do
+ActiveRecord::Schema.define(version: 2018_10_22_195918) do
+
+  create_table "challenges", force: :cascade do |t|
+    t.string "type"
+    t.integer "length"
+    t.integer "challenger_id"
+    t.integer "challenge_acceptor_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "problems", force: :cascade do |t|
     t.string "type"

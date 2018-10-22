@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  get 'challenge/challenge_create'
+  get 'challenge/challenge_run'
+  get 'challenge/challenge_invite'
+  get 'challenge/challenge_accept'
+  get 'challenge/challenge_decline'
   get 'main' => 'headquarters#main'
   get 'all_users' => 'headquarters#all_users'
   get 'show_user' => 'headquarters#show_user'
