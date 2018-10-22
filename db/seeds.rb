@@ -5,3 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+# Generate Some Addition Problems
+10.times do |i|
+    10.times do |j|
+        Problem.create({problem_type: "addition", question: "#{i} + #{j} = ?", answer: "#{i+j}"})
+    end
+end
