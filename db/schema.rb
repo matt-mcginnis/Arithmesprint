@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_22_235817) do
+ActiveRecord::Schema.define(version: 2018_10_23_225721) do
 
   create_table "challenges", force: :cascade do |t|
     t.string "category"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2018_10_22_235817) do
     t.integer "receiver_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "question_array"
   end
 
   create_table "problems", force: :cascade do |t|
