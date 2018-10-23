@@ -1,16 +1,20 @@
 class ChallengeController < ApplicationController
-  def challenge_create
+  def new
   end
 
-  def challenge_run
+  def create
+    challenge = Challenge.create(category: params[:category], length: params[:length], issuer_id: params[:issuer_id], receiver_id: params[:receiver_id])
   end
 
-  def challenge_invite
+  def run
   end
 
-  def challenge_accept
+  def invite
   end
 
-  def challenge_decline
+  def accept
+  end
+
+  def decline
   end
 end

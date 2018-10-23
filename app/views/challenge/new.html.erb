@@ -1,0 +1,9 @@
+<h1>Create a New Challenge</h1>
+
+    <%= form_tag challenge_create_path do %>
+    	<%= text_field_tag :category, nil, placeholder: "Category" %><br />
+    	<%= number_field_tag :length, nil, placeholder: "Length" %><br />
+    	<%= number_field_tag :issuer_id, nil, placeholder: "Issuer" %><br />
+    	<%= number_field_tag :receiver_id, nil, placeholder: "Receiver" %><br />
+        <%= submit_tag "Create" %>
+    <% end %>
