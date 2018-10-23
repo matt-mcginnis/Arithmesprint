@@ -1,6 +1,10 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  # Used to get local images to show up.
+  config.serve_static_assets = true
+  config.assets.compile = true
+
   # Code is not reloaded between requests.
   config.cache_classes = true
 
