@@ -1,3 +1,3 @@
 class Challenge < ApplicationRecord
-    serialize :question_array, Array
+    serialize :problem_array, Array
 end
