@@ -1,7 +1,8 @@
 class ChallengeController < ApplicationController
     require 'problem'
 
-    def new; end
+    def new
+    end
 
     def create
         category = params[:category]
@@ -57,6 +58,8 @@ class ChallengeController < ApplicationController
 
       @invited.save
       current_user.save
+
+      redirect_to challenge_new_path
     end
 
     def accept
