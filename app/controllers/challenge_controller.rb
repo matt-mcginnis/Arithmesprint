@@ -40,7 +40,15 @@ class ChallengeController < ApplicationController
   end
 
   def receiver_outcome
+      @challenge = Challenge.find(params[:id])
 
+      @score = 0;
+
+      @challenge.problem_array.each_with_index do |problem, index|
+        if problem.answer == params[("user_answer_#{index}").to_sym]
+            @score += 1
+        end
+      end
   end
 
   def invite

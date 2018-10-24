@@ -1,8 +1,17 @@
 <h1>Time for a Challenge</h1>
 
-<%= form_tag(issuer_outcome_path(id: @challenge.id)) do %>
-    <% @challenge.problem_array.each_with_index do |problem, index| %>
-        <p><%= problem.question %> <%= text_field_tag ("user_answer_#{index}").to_sym %></p>
+<% if @challenge.issuer_id == current_user.id %>
+    <%= form_tag(issuer_outcome_path(id: @challenge.id)) do %>
+        <% @challenge.problem_array.each_with_index do |problem, index| %>
+            <p><%= problem.question %> <%= text_field_tag ("user_answer_#{index}").to_sym %></p>
+        <% end %>
+        <%= submit_tag "Submit" %>
     <% end %>
-    <%= submit_tag "Submit" %>
+<% else %>
+    <%= form_tag(receiver_outcome_path(id: @challenge.id)) do %>
+        <% @challenge.problem_array.each_with_index do |problem, index| %>
+            <p><%= problem.question %> <%= text_field_tag ("user_answer_#{index}").to_sym %></p>
+        <% end %>
+        <%= submit_tag "Submit" %>
+    <% end %>
 <% end %>
