@@ -1,4 +1,6 @@
 class ChallengeController < ApplicationController
+    require 'problem'
+
     def new; end
 
     def create

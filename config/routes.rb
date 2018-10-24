@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get 'challenge_new' => 'challenge#new'
   post 'challenge_create' => 'challenge#create'
   get 'challenge_run' => 'challenge#run'
-  post 'outcome' => 'challenge#outcome'
+  match 'outcome' => 'challenge#outcome', via: [:post, :get]
   get 'challenge/invite'
   get 'challenge/accept'
   get 'challenge/decline'
