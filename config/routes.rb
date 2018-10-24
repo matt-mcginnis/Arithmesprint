@@ -3,9 +3,9 @@ Rails.application.routes.draw do
   post 'challenge_create' => 'challenge#create'
   get 'challenge_run' => 'challenge#run'
   match 'outcome' => 'challenge#outcome', via: [:post, :get]
-  get 'challenge/invite'
-  get 'challenge/accept'
-  get 'challenge/decline'
+  get 'challenge_invite' => 'challenge#invite'
+  get 'challenge_accept' => 'challenge#accept'
+  get 'challenge_decline' => 'challenge#decline'
 
   get 'main' => 'headquarters#main'
   get 'all_users' => 'headquarters#all_users'

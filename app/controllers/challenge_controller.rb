@@ -49,9 +49,35 @@ class ChallengeController < ApplicationController
         end
     end
 
-    def invite; end
+    def invite
+      @invited = User.find(params[:id])
 
-    def accept; end
+      current_user.pending_challenge_invitations.push(@invited.id)
+      @invited.pending_challenge_requests.push(current_user.id)
 
-    def decline; end
+      @invited.save
+      current_user.save
+    end
+
+    def accept
+      @inviter = User.find(params[:id])
+
+      current_user.pending_challenge_requests.delete(@inviter.id)
+
+      @inviter.pending_challenge_invitations.delete(current_user.id)
+
+      @inviter.save
+      current_user.save
+    end
+
+    def decline
+      @inviter = User.find(params[:id])
+
+      current_user.pending_challenge_requests.delete(@inviter.id)
+
+      @inviter.pending_challenge_invitations.delete(current_user.id)
+
+      @inviter.save
+      current_user.save
+    end
 end

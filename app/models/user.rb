@@ -9,6 +9,8 @@ class User < ApplicationRecord
     serialize :friends, Array
     serialize :pending_friend_requests, Array
     serialize :pending_friend_invitations, Array
+    serialize :pending_challenge_requests, Array
+    serialize :pending_challenge_invitations, Array
 
     mount_uploader :avatar, AvatarUploader
 

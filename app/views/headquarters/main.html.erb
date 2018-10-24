@@ -15,6 +15,32 @@
         </div>
         <div class="col-md-7">
             <h2 id="feed">What People are Saying</h2>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>Pending Challenge Requests</h3>
+                    <ul>
+                        <% current_user.pending_challenge_requests.each do |challenge| %>
+                        <li>
+                            <%= User.find(challenge).name %>
+                            <%= link_to "Accept", challenge_accept_path(id: challenge) %>
+                            <%= link_to "Decline", challenge_decline_path(id: challenge) %>
+                        </li>
+                        <% end %>
+                    </ul>
+                </div>
+
+                <div class="col-md-6">
+                    <h3>Pending Challenge Invitations</h3>
+                    <ul>
+                        <% current_user.pending_challenge_invitations.each do |invitation| %>
+                        <li>
+                            The challenge sent to <%= User.find(invitation).name %> is currently pending.
+                        </li>
+                        <% end %>
+                    </ul>
+                </div>
+            </div>
         </div>
         <div class="col-md-3" id="main_right">
             <h2>Pending Friend Requests</h2>
