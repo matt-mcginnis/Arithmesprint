@@ -19,8 +19,8 @@ Things you may want to cover:
 * Depending on your system, you may have to install some extra dependencies. To 
 install Ruby and Rails, please refer to the following links.
 
-Rails Resource: https://installrails.com/
-RVM Resource: https://rvm.io/rvm/install
+Rails Resource: https://installrails.com/  
+RVM Resource: https://rvm.io/rvm/install  
 Ruby Resource: https://www.ruby-lang.org/en/documentation/installation/ 
  
 * Configuration
