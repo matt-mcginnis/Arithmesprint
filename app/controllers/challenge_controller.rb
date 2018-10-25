@@ -9,7 +9,7 @@ class ChallengeController < ApplicationController
         problems_from_category = Problem.where(problem_type: category)
         problem_array = problems_from_category.sample(length)
 
-        challenge = Challenge.create(category: category, length: length, issuer_id: issuer_id, receiver_id: receiver_id, problem_array: problem_array)
+        challenge = Challenge.create(category: category, length: length, issuer_id: issuer_id, receiver_id: receiver_id, issuer_score: 0, receiver_score: 0, problem_array: problem_array)
 
         issuer = User.find(issuer_id)
         issuer.pending_challenge_invitations.push(challenge.id)
@@ -25,12 +25,18 @@ class ChallengeController < ApplicationController
     def run
         @challenge = Challenge.find(params[:id])
 
-        @score = 0
+        score = 0
 
         @challenge.problem_array.each_with_index do |problem, index|
             if problem.answer == params["user_answer_#{index}".to_sym]
-                @score += 1
+                score += 1
             end
+        end
+
+        if current_user.id == @challenge.issuer_id
+            Challenge.update(issuer_score: score)
+        else
+            Challenge.update(receiver_score: score)
         end
     end
 
