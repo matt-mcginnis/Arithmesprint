@@ -34,6 +34,10 @@ class ChallengeController < ApplicationController
         end
     end
 
+    def outcome
+        @challenge = Challenge.find(params[:id])
+    end
+
     def invite
         # This is a wrapper method that calls on a challenge
         # to be created
