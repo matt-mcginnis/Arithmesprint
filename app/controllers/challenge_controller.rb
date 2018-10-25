@@ -9,7 +9,7 @@ class ChallengeController < ApplicationController
         problems_from_category = Problem.where(problem_type: category)
         problem_array = problems_from_category.sample(length)
 
-        challenge = Challenge.create(category: category, length: length, issuer_id: issuer_id, receiver_id: receiver_id, issuer_score: 0, receiver_score: 0, problem_array: problem_array)
+        challenge = Challenge.create(category: category, length: length, issuer_id: issuer_id, receiver_id: receiver_id, issuer_score: 0, receiver_score: 0, accepted: false, problem_array: problem_array)
 
         issuer = User.find(issuer_id)
         issuer.pending_challenge_invitations.push(challenge.id)
@@ -52,6 +52,8 @@ class ChallengeController < ApplicationController
     def accept
       challenge = Challenge.find(params[:id])
       issuer = User.find(challenge.issuer_id)
+
+      challenge.update(accepted: true)
 
       current_user.pending_challenge_requests.delete(challenge.id)
 
