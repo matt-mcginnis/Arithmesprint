@@ -1,9 +1,0 @@
-<h1>Outcome</h1>
-
-<% if current_user.id == @challenge.issuer_id %>
-    <p>Your score: <%= @issuer_score %> </p>
-    <p>Your oponent's score: <%= @receiver_score %> </p>
-<% else %>
-    <p>Your score: <%= @receiver_score %> </p>
-    <p>Your oponent's score: <%= @issuer_score %> </p>
-<% end %>

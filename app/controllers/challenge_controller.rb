@@ -34,29 +34,8 @@ class ChallengeController < ApplicationController
         end
     end
 
-    def outcome
-        @challenge = Challenge.find(params[:id])
-
-        @issuer_score = 0
-        @receiver_score = 0
-
-        if current_user.id == @challenge.issuer_id
-            @challenge.problem_array.each_with_index do |problem, index|
-                if problem.answer == params["user_answer_#{index}".to_sym]
-                    @issuer_score += 1
-                end
-            end
-        else
-            @challenge.problem_array.each_with_index do |problem, index|
-                if problem.answer == params["user_answer_#{index}".to_sym]
-                    @receiver_score += 1
-                end
-            end
-        end
-    end
-
     def invite
-        # This is basically a wrapper method that calls on a challenge
+        # This is a wrapper method that calls on a challenge
         # to be created
     end
 
