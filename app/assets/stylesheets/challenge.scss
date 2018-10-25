@@ -13,6 +13,42 @@
     --color-8: darkslategray;
 }
 
+div.container.container-invite {
+    display: flex;
+    justify-content: center;
+    background-image: linear-gradient(to top right, var(--color-4), var(--color-5));
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 70vh;
+    padding-top: 30px;
+    margin-top: 0px;
+}
+
+div.container.container-run {
+    display: flex;
+    justify-content: center;
+    background-image: linear-gradient(to top right, var(--color-4), var(--color-5));
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 70vh;
+    padding-top: 30px;
+    margin-top: 0px;
+}
+
+div.container.container-outcome {
+    display: flex;
+    justify-content: center;
+    background-image: linear-gradient(to top right, var(--color-4), var(--color-5));
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 70vh;
+    padding-top: 30px;
+    margin-top: 0px;
+}
+
 input#category_addition {
     height: 20px;
     width: 20px;

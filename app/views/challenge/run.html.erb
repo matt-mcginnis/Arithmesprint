@@ -1,8 +1,14 @@
-<h1>Time for a Challenge</h1>
+<div class="jumbotron">
+    <h1>Time for a Challenge</h1>
+</div>
 
-<%= form_tag(outcome_path(id: @challenge.id)) do %>
-    <% @challenge.problem_array.each_with_index do |problem, index| %>
-        <p><%= problem.question %> <%= text_field_tag ("user_answer_#{index}").to_sym %></p>
+<div class="separator"></div>
+
+<div class="container container-run">
+    <%= form_tag(outcome_path(id: @challenge.id)) do %>
+        <% @challenge.problem_array.each_with_index do |problem, index| %>
+            <p><%= problem.question %> <%= text_field_tag ("user_answer_#{index}").to_sym %></p>
+        <% end %>
+        <%= submit_tag "Submit" %>
     <% end %>
-    <%= submit_tag "Submit" %>
-<% end %>
+</div>
