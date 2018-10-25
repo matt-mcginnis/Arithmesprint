@@ -113,12 +113,17 @@ div.container.signup-container {
 }
 
 /* Edit */
-.edit-container {
+div.container.edit-container {
     display: flex;
     align-items: center;
     justify-content: center;
+    background-image: linear-gradient(to top right, var(--color-4), var(--color-5));
+    background-repeat: no-repeat;
+    background-size: cover;
     width: 100%;
-    height: 100%;
+    padding-top: 4%;
+    padding-bottom: 4%;
+    margin-top: 0px;
 }
 
 .edit-col {
