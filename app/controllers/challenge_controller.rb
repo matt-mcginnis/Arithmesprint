@@ -1,18 +1,23 @@
 class ChallengeController < ApplicationController
     require 'problem'
 
-    def new
-    end
-
     def create
         category = params[:category]
         length = params[:length].to_i
         issuer_id = params[:issuer_id].to_i
         receiver_id = params[:receiver_id].to_i
-        @problems_from_category = Problem.where(problem_type: category)
-        problem_array = @problems_from_category.sample(length)
+        problems_from_category = Problem.where(problem_type: category)
+        problem_array = problems_from_category.sample(length)
 
         challenge = Challenge.create(category: category, length: length, issuer_id: issuer_id, receiver_id: receiver_id, problem_array: problem_array)
+
+        issuer = User.find(issuer_id)
+        issuer.pending_challenge_invitations.push(challenge.id)
+        receiver = User.find(receiver_id)
+        receiver.pending_challenge_requests.push(challenge.id)
+
+        issuer.save
+        receiver.save
 
         redirect_to challenge_run_path(id: challenge.id)
     end
@@ -51,26 +56,22 @@ class ChallengeController < ApplicationController
     end
 
     def invite
-      @invited = User.find(params[:id])
-
-      current_user.pending_challenge_invitations.push(@invited.id)
-      @invited.pending_challenge_requests.push(current_user.id)
-
-      @invited.save
-      current_user.save
-
-      redirect_to challenge_new_path
+        # This is basically a wrapper method that calls on a challenge
+        # to be created
     end
 
     def accept
-      @inviter = User.find(params[:id])
+      challenge = Challenge.find(params[:id])
+      issuer = User.find(challenge.issuer_id)
 
-      current_user.pending_challenge_requests.delete(@inviter.id)
+      current_user.pending_challenge_requests.delete(challenge.id)
 
-      @inviter.pending_challenge_invitations.delete(current_user.id)
+      issuer.pending_challenge_invitations.delete(challenge.id)
 
-      @inviter.save
+      issuer.save
       current_user.save
+
+      redirect_to challenge_run_path(id: challenge.id)
     end
 
     def decline

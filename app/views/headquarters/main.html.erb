@@ -22,7 +22,7 @@
                     <ul>
                         <% current_user.pending_challenge_requests.each do |challenge| %>
                         <li>
-                            <%= User.find(challenge).name %>
+                            <%= User.find(Challenge.find(challenge).issuer_id).name %>
                             <%= link_to "Accept", challenge_accept_path(id: challenge) %>
                             <%= link_to "Decline", challenge_decline_path(id: challenge) %>
                         </li>
@@ -35,7 +35,7 @@
                     <ul>
                         <% current_user.pending_challenge_invitations.each do |invitation| %>
                         <li>
-                            The challenge sent to <%= User.find(invitation).name %> is currently pending.
+                            The challenge sent to <%= User.find(Challenge.find(invitation).receiver_id).name %> is currently pending.
                         </li>
                         <% end %>
                     </ul>

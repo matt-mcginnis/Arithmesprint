@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'challenge_new' => 'challenge#new'
   post 'challenge_create' => 'challenge#create'
   get 'challenge_run' => 'challenge#run'
   match 'outcome' => 'challenge#outcome', via: [:post, :get]
