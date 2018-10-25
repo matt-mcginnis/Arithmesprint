@@ -62,14 +62,17 @@ div.container.login-container {
 }
 
 /* Signup */
-.signup-container {
+div.container.signup-container {
     display: flex;
     align-items: center;
     justify-content: center;
+    background-image: linear-gradient(to top right, var(--color-4), var(--color-5));
+    background-repeat: no-repeat;
+    background-size: cover;
     width: 100%;
-    height: 100%;
-    padding-top: 5%;
-    padding-bottom: 5%;
+    padding-top: 4%;
+    padding-bottom: 4%;
+    margin-top: 0px;
 }
 
 .signup-col {
@@ -153,40 +156,4 @@ div.container.login-container {
 
 .edit-col .form-control {
     color: var(--color-5);
-}
-
-@media only screen and (max-width: 768px), only screen and (max-height: 868px) {
-    .login-container {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-image: linear-gradient(to top right, var(--color-4), var(--color-5));
-        background-repeat: no-repeat;
-        background-size: cover;
-        width: 100%;
-        padding-top: 10%;
-        padding-bottom: 10%;
-    }
-
-    /* Signup */
-    .signup-container {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        height: 100%;
-        padding-top: 380px;
-        padding-bottom: 380px;
-    }
-
-    /* Edit */
-    .edit-container {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        height: 100%;
-        padding-top: 480px;
-        padding-bottom: 480px;
-    }
 }
