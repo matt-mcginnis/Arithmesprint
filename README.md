@@ -22,17 +22,16 @@ install Ruby and Rails, please refer to the following links.
 Rails Resource: https://installrails.com/  
 RVM Resource: https://rvm.io/rvm/install  
 Ruby Resource: https://www.ruby-lang.org/en/documentation/installation/ 
- 
-* Configuration
 
-* Database creation
+* To initialize the database for the app, once you have cloned it change into the 
+directory and run the following commands:
 
-* Database initialization
+rails db:migrate  
+rails db:seed
 
-* How to run the test suite
+* Once the database has been initialized, you can view the web application locally 
+by running the command "rails s" in your terminal and visiting https://localhost:3000 
+in your web browser.
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+If you have any questions or suggestions about the app, please feel free to send me an 
+email or submit a request!
