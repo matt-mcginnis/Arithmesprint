@@ -17,6 +17,17 @@
                     <%= link_to "Arithmesprint", root_path, class: "navbar-brand" %>
                 </div>
 
+                <ul class="nav navbar-nav navbar-left">
+                    <% if current_user != nil %>
+                        <% if current_user.pending_challenge_requests.empty? == false %>
+                            <li><%= link_to "Challenge Requests (#{current_user.pending_challenge_requests.length})", requests_and_invitations_path, id: "navbar-requests" %></li>
+                        <% end %>
+                        <% if current_user.pending_challenge_invitations.empty? == false %>
+                            <li><%= link_to "Challenge Invitations (#{current_user.pending_challenge_invitations.length})", requests_and_invitations_path, id: "navbar-invitations" %></li>
+                        <% end %>
+                    <% end %>
+                </ul>
+
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <%= form_tag(all_users_path, :method => "get", id: "search-form", class: "navbar-form navbar-left") do %>

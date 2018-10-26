@@ -9,12 +9,13 @@
 <div class="separator"></div>
 
 <div class="container container-main">
-    <div class="row">
+    <div class="row row-main">
         <div class="col-md-2">
+            <%= image_tag current_user.avatar.url, size: 150, class: "img-rounded" %>
             <h2><%= current_user.name %></h2>
         </div>
         <div class="col-md-7">
-            <h2 id="feed">What People are Saying</h2>
+            <h2 id="feed">What Your Friends are Saying</h2>
 
             <div class="row">
                 <div class="col-md-6">

@@ -33,6 +33,7 @@
     background-color: var(--color-3);
 }
 
+/* Main Page */
 div.container.container-main {
     display: flex;
     justify-content: center;
@@ -45,16 +46,8 @@ div.container.container-main {
     margin-top: 0px;
 }
 
-div.container.container-all-users {
-    display: flex;
-    justify-content: center;
-    background-image: linear-gradient(to top right, var(--color-4), var(--color-5));
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 100%;
-    height: 60vh;
-    padding-top: 30px;
-    margin-top: 0px;
+.row.row-main {
+    width: 72%;
 }
 
 h2 {
@@ -70,8 +63,20 @@ h2#feed {
 }
 
 /* Requests and Invitations */
-.container#requests_and_invitations {
-    width: 50%;
+div.container.container-requests-and-invitations {
+    display: flex;
+    justify-content: center;
+    background-image: linear-gradient(to top right, var(--color-4), var(--color-5));
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 70vh;
+    padding-top: 30px;
+    margin-top: 0px;
+}
+
+.row#requests_and_invitations {
+    width: 80%;
 }
 
 .col-md-6#requests_and_invitations h2 {
@@ -108,4 +113,17 @@ h2#feed {
 
 .col-md-6#requests_and_invitations ul li .well p a {
     color: var(--color-3);
+}
+
+/* All Users */
+div.container.container-all-users {
+    display: flex;
+    justify-content: center;
+    background-image: linear-gradient(to top right, var(--color-4), var(--color-5));
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 70vh;
+    padding-top: 30px;
+    margin-top: 0px;
 }

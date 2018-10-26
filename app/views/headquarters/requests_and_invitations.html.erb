@@ -1,36 +1,67 @@
-<div class="container" id="requests_and_invitations">
+<div class="jumbotron">
+    <h1>Requests and Invitations</h1>
+</div>
 
-    <div class="row">
+<div class="separator"></div>
 
-        <div class="col-md-6" id="requests_and_invitations">
-            <h2>Pending Friend Requests</h2>
-
-            <ul>
-                <% current_user.pending_friend_requests.each do |request| %>
+<div class="container container-requests-and-invitations">
+    <div class="row" id="requests_and_invitations">
+        <div class="col-md-12">
+            <div class="col-md-3" id="requests_and_invitations">
+                <h2>Pending Challenge Requests</h2>
+                <ul>
+                    <% current_user.pending_challenge_requests.each do |challenge| %>
                     <li>
-                        <div class="well" id="requests">
-                            <p>Request from <strong><%= link_to User.find(request).name, show_user_path(id: request) %></strong></p>
-                            <%= link_to "Accept", friend_accept_path(id: request), class: "btn btn-success" %>
-                            <%= link_to "Decline", friend_decline_path(id: request), class: "btn btn-danger" %>
-                        </div>
+                        <%= User.find(Challenge.find(challenge).issuer_id).name %>
+                        <%= link_to "Accept", challenge_accept_path(id: challenge) %>
+                        <%= link_to "Decline", challenge_decline_path(id: challenge) %>
                     </li>
-                <% end %>
-            </ul>
-        </div>
+                    <% end %>
+                </ul>
+            </div>
 
-        <div class="col-md-6" id="requests_and_invitations">
-            <h2>Pending Friend Invites</h2>
-
-            <ul>
-                <% current_user.pending_friend_invitations.each do |invitation| %>
+            <div class="col-md-3" id="requests_and_invitations">
+                <h2>Pending Challenge Invitations</h2>
+                <ul>
+                    <% current_user.pending_challenge_invitations.each do |invitation| %>
                     <li>
-                        <div class="well" id="invitations">
-                            <p>Invitation to <strong><%= link_to User.find(invitation).name, show_user_path(id: invitation) %></strong></p>
-                            <p>Response Currently Pending</p>
-                        </div>
+                        The challenge sent to <%= User.find(Challenge.find(invitation).receiver_id).name %> is currently pending.
                     </li>
-                <% end %>
-            </ul>
+                    <% end %>
+                </ul>
+            </div>
+
+
+            <div class="col-md-3" id="requests_and_invitations">
+                <h2>Pending Friend Requests</h2>
+
+                <ul>
+                    <% current_user.pending_friend_requests.each do |request| %>
+                        <li>
+                            <div class="well" id="requests">
+                                <p>Request from <strong><%= link_to User.find(request).name, show_user_path(id: request) %></strong></p>
+                                <%= link_to "Accept", friend_accept_path(id: request), class: "btn btn-success" %>
+                                <%= link_to "Decline", friend_decline_path(id: request), class: "btn btn-danger" %>
+                            </div>
+                        </li>
+                    <% end %>
+                </ul>
+            </div>
+
+            <div class="col-md-3" id="requests_and_invitations">
+                <h2>Pending Friend Invites</h2>
+
+                <ul>
+                    <% current_user.pending_friend_invitations.each do |invitation| %>
+                        <li>
+                            <div class="well" id="invitations">
+                                <p>Invitation to <strong><%= link_to User.find(invitation).name, show_user_path(id: invitation) %></strong></p>
+                                <p>Response Currently Pending</p>
+                            </div>
+                        </li>
+                    <% end %>
+                </ul>
+            </div>
         </div>
     </div>
 </div>
