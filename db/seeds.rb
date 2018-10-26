@@ -12,3 +12,26 @@
         Problem.create({problem_type: "addition", question: "#{i} + #{j} = ?", answer: "#{i+j}"})
     end
 end
+
+#Generate Subtraction Problems
+10.times do |i|
+    i.times do |j|
+        Problem.create({problem_type: "subtraction", question: "#{i} - #{j} = ?", answer: "#{i-j}"})
+    end
+end
+
+#Generate Multiplication Problems
+10.times do |i|
+    10.times do |j|
+        Problem.create({problem_type: "multiplication", question: "#{i} #{215.chr("UTF-8")} #{j} = ?", answer: "#{i * j}"})
+    end
+end
+
+#Generate Division Problems
+100.times do |i|
+    i.times do |j|
+        if (j > 0) && (i % j == 0)
+            Problem.create({problem_type: "division", question: "#{i} #{247.chr("UTF-8")} #{j} = ?", answer: "#{i / j}"})
+        end
+    end
+end
