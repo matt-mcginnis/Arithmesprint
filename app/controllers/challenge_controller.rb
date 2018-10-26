@@ -24,6 +24,10 @@ class ChallengeController < ApplicationController
 
     def run
         @challenge = Challenge.find(params[:id])
+    end
+
+    def outcome
+        @challenge = Challenge.find(params[:id])
 
         score = 0
 
@@ -34,14 +38,12 @@ class ChallengeController < ApplicationController
         end
 
         if current_user.id == @challenge.issuer_id
-            Challenge.update(issuer_score: score)
+            @challenge.update(issuer_score: score)
         else
-            Challenge.update(receiver_score: score)
+            @challenge.update(receiver_score: score)
         end
-    end
 
-    def outcome
-        @challenge = Challenge.find(params[:id])
+        @challenge.save
     end
 
     def invite

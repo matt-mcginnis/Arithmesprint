@@ -6,4 +6,17 @@
 
 <div class="container container-outcome">
 
+    <% if @challenge.accepted %>
+        <h2>Final Score</h2>
+        <div class="well">
+            <p>Your Score: <%= @challenge.receiver_score %></p>
+            <p><%= User.find(@challenge.issuer_id).username %>'s Score: <%= @challenge.issuer_score %></p>
+        </div>
+    <% else %>
+        <div class="well">
+            <p>Your Score: <%= @challenge.issuer_score %></p>
+            <p>Currently waiting for <%= User.find(@challenge.receiver_id).username %> to accept the challenge.</p>
+        </div>
+    <% end %>
+
 </div>
