@@ -20,47 +20,45 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <%= form_tag(all_users_path, :method => "get", id: "search-form", class: "navbar-form navbar-left") do %>
-                        <div class="form-group">
-                            <%= text_field_tag :search, params[:search], placeholder: "Search...", class: "form-control mr-sm-2" %>
-                        </div>
-                        <%= submit_tag "Search", :name => nil, class: "btn btn-secondary my-2 my-sm-0" %>
-                    <% end %>
+                    <div class="form-group">
+                        <%= text_field_tag :search, params[:search], placeholder: "Search...", class: "form-control mr-sm-2" %>
+                    </div>
+                    <%= submit_tag "Search", :name => nil, class: "btn btn-secondary my-2 my-sm-0" %>
+                <% end %>
 
-                <ul class="nav navbar-nav navbar-right">
-                    <% if current_user != nil %>
-                        <li><%= image_tag current_user.avatar.url, size: 50, class: "img-circle" %></li>
-                        <% if current_user.pending_friend_requests.empty? == false %>
-                            <li><%= link_to "View Requests (#{current_user.pending_friend_requests.length})", requests_and_invitations_path, id: "navbar-requests" %></li>
-                        <% end %>
-                        <% if current_user.pending_friend_invitations.empty? == false %>
-                            <li><%= link_to "View Invitations (#{current_user.pending_friend_invitations.length})", requests_and_invitations_path, id: "navbar-invitations" %></li>
-                        <% end %>
-                    <% end %>
-                    <li class="dropdown">
-                        <% if current_user == nil %>
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Login<span class="caret"></span></a>
-                        <% else %>
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Logout<span class="caret"></span></a>
-                        <% end %>
-                        <ul class="dropdown-menu">
-                            <li>
-                            <% if user_signed_in? %>
-                                <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
-                                <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
-                            <% else %>
-                                <li><%= link_to "Sign In", new_user_session_path %></li>
-                                <li><%= link_to "Sign Up", new_user_registration_path %></li>
+                    <ul class="nav navbar-nav navbar-right">
+                        <% if current_user != nil %>
+                            <li><%= image_tag current_user.avatar.url, size: 50, class: "img-circle" %></li>
+                            <% if current_user.pending_friend_requests.empty? == false %>
+                                <li><%= link_to "View Requests (#{current_user.pending_friend_requests.length})", requests_and_invitations_path, id: "navbar-requests" %></li>
                             <% end %>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
+                            <% if current_user.pending_friend_invitations.empty? == false %>
+                                <li><%= link_to "View Invitations (#{current_user.pending_friend_invitations.length})", requests_and_invitations_path, id: "navbar-invitations" %></li>
+                            <% end %>
+                        <% end %>
+                        <li class="dropdown">
+                            <% if current_user == nil %>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Login<span class="caret"></span></a>
+                            <% else %>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Logout<span class="caret"></span></a>
+                            <% end %>
+                            <ul class="dropdown-menu">
+                                    <% if user_signed_in? %>
+                                    <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
+                                    <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+                                <% else %>
+                                    <li><%= link_to "Sign In", new_user_session_path %></li>
+                                    <li><%= link_to "Sign Up", new_user_registration_path %></li>
+                                <% end %>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
         <!-- /.navbar-collapse -->
-        </div>
+            </div>
     <!-- /.container-fluid -->
-    </nav>
-<div class="separator"></div>
-<%= yield %>
-</body>
+        </nav>
+        <div class="separator"></div>
+        <%= yield %>
+    </body>
 </html>
