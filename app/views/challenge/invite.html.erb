@@ -35,8 +35,8 @@
     	<%= radio_button_tag(:length, 30) %>
     	<%= label_tag "30 Questions" %><br />
 
-    	<%= hidden_field_tag 'issuer_id', params[:issuer_id] %>
-    	<%= hidden_field_tag 'receiver_id', params[:receiver_id] %>
+    	<%= hidden_field_tag :issuer_id, current_user.id %>
+    	<%= hidden_field_tag :receiver_id, @receiver.id %>
 
 	    <%= submit_tag "Create" %>
 	<% end %>
