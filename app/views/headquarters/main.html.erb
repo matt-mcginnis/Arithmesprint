@@ -11,37 +11,14 @@
 <div class="container container-main">
     <div class="row row-main">
         <div class="col-md-2">
-            <%= image_tag current_user.avatar.url, size: 150, class: "img-rounded" %>
+            <%= image_tag current_user.avatar.url, size: 195, class: "img-rounded" %>
             <h2><%= current_user.name %></h2>
+            <p>Username: <%= current_user.username %></p>
+            <p>Location: <%= current_user.location %></p>
+            <p>Bio: <%= current_user.bio %></p>
         </div>
         <div class="col-md-7">
             <h2 id="feed">What Your Friends are Saying</h2>
-
-            <div class="row">
-                <div class="col-md-6">
-                    <h3>Pending Challenge Requests</h3>
-                    <ul>
-                        <% current_user.pending_challenge_requests.each do |challenge| %>
-                        <li>
-                            <%= User.find(Challenge.find(challenge).issuer_id).name %>
-                            <%= link_to "Accept", challenge_accept_path(id: challenge) %>
-                            <%= link_to "Decline", challenge_decline_path(id: challenge) %>
-                        </li>
-                        <% end %>
-                    </ul>
-                </div>
-
-                <div class="col-md-6">
-                    <h3>Pending Challenge Invitations</h3>
-                    <ul>
-                        <% current_user.pending_challenge_invitations.each do |invitation| %>
-                        <li>
-                            The challenge sent to <%= User.find(Challenge.find(invitation).receiver_id).name %> is currently pending.
-                        </li>
-                        <% end %>
-                    </ul>
-                </div>
-            </div>
         </div>
         <div class="col-md-3" id="main_right">
             <h2>Pending Friend Requests</h2>

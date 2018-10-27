@@ -41,9 +41,10 @@ div.container.container-main {
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
-    height: 60vh;
+    height: 63vh;
     padding-top: 30px;
     margin-top: 0px;
+    overflow: auto;
 }
 
 .row.row-main {
@@ -73,6 +74,7 @@ div.container.container-requests-and-invitations {
     height: 70vh;
     padding-top: 30px;
     margin-top: 0px;
+    overflow: auto;
 }
 
 .row#requests_and_invitations {
@@ -126,4 +128,5 @@ div.container.container-all-users {
     height: 70vh;
     padding-top: 30px;
     margin-top: 0px;
+    overflow: auto;
 }

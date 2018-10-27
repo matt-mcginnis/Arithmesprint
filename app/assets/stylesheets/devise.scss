@@ -21,6 +21,7 @@ div.container.login-container {
     padding-top: 15%;
     padding-bottom: 15%;
     margin-top: 0px;
+    overflow: auto;
 }
 
 
@@ -73,6 +74,7 @@ div.container.signup-container {
     padding-top: 4%;
     padding-bottom: 4%;
     margin-top: 0px;
+    overflow: auto;
 }
 
 .signup-col {
@@ -124,6 +126,7 @@ div.container.edit-container {
     padding-top: 0.95%;
     padding-bottom: 0.95%;
     margin-top: 0px;
+    overflow: auto;
 }
 
 .edit-col {
