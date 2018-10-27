@@ -4,8 +4,8 @@ class ChallengeController < ApplicationController
     def create
         category = params[:category]
         length = params[:length].to_i
-        issuer_id = params[:issuer_id].to_i
-        receiver_id = params[:receiver_id].to_i
+        issuer_id = current_user.id
+        receiver_id = session[:passed_receiver_id]
         problems_from_category = Problem.where(problem_type: category)
         problem_array = problems_from_category.sample(length)
 
@@ -49,6 +49,9 @@ class ChallengeController < ApplicationController
     def invite
         # This is a wrapper method that calls on a challenge
         # to be created
+        receiver_id = params[:receiver_id]
+        @receiver = User.find(receiver_id)
+        session[:passed_receiver_id] = receiver_id
     end
 
     def accept

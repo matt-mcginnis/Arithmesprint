@@ -1,5 +1,8 @@
 <div class="jumbotron">
-	<h1>Create a New Challenge</h1>
+	<h1>
+		Create a New Challenge<br>
+		for <%= @receiver.username %>
+	</h1>
 </div>
 
 <div class="separator"></div>
@@ -8,9 +11,33 @@
 	<%= form_tag challenge_create_path do %>
     	<%= radio_button_tag(:category, "addition") %>
     	<%= label_tag "Addition" %><br />
-		<%= number_field_tag :length, nil, placeholder: "Length" %><br />
-		<%= number_field_tag :issuer_id, nil, placeholder: "Issuer" %><br />
-		<%= number_field_tag :receiver_id, nil, placeholder: "Receiver" %><br />
+    	<%= radio_button_tag(:category, "subtraction") %>
+    	<%= label_tag "Subtraction" %><br />
+    	<%= radio_button_tag(:category, "multiplication") %>
+    	<%= label_tag "Multiplication" %><br />
+    	<%= radio_button_tag(:category, "division") %>
+    	<%= label_tag "Division" %><br />
+
+    	<%= radio_button_tag(:length, 1) %>
+    	<%= label_tag "One Question" %><br />
+    	<%= radio_button_tag(:length, 3) %>
+    	<%= label_tag "3 Questions" %><br />
+    	<%= radio_button_tag(:length, 5) %>
+    	<%= label_tag "5 Questions" %><br />
+    	<%= radio_button_tag(:length, 10) %>
+    	<%= label_tag "10 Questions" %><br />
+    	<%= radio_button_tag(:length, 15) %>
+    	<%= label_tag "15 Questions" %><br />
+    	<%= radio_button_tag(:length, 20) %>
+    	<%= label_tag "20 Questions" %><br />
+    	<%= radio_button_tag(:length, 25) %>
+    	<%= label_tag "25 Questions" %><br />
+    	<%= radio_button_tag(:length, 30) %>
+    	<%= label_tag "30 Questions" %><br />
+
+    	<%= hidden_field_tag 'issuer_id', params[:issuer_id] %>
+    	<%= hidden_field_tag 'receiver_id', params[:receiver_id] %>
+
 	    <%= submit_tag "Create" %>
 	<% end %>
 </div>

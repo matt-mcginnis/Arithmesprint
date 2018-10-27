@@ -13,7 +13,7 @@
                 <li><%= user.username %></li>
                 <% if current_user.friends.include? user.id %>
                     <%= link_to "Unfriend", unfriend_path(id: user.id) %>
-                    <%= link_to "Challenge", challenge_invite_path(id: user.id) %>
+                    <%= link_to "Challenge", challenge_invite_path(receiver_id: user.id) %>
                 <% elsif current_user.pending_friend_invitations.include? user.id %>
                     Response currently pending
                 <% else %>
