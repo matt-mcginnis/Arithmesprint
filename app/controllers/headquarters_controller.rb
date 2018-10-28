@@ -2,6 +2,8 @@ class HeadquartersController < ApplicationController
   before_action :authenticate_user!
 
   def main
+    @post = Post.new
+    @posts = Post.all
   end
 
   def all_users
@@ -63,4 +65,21 @@ class HeadquartersController < ApplicationController
 
       redirect_to root_path
   end
+
+
+ # Posts Actions
+  def create_posts
+    post = Post.create(post_params)
+    redirect_to posts_path
+  end
+
+  def posts
+    @posts = Post.all
+  end
+
+  private
+
+    def post_params
+      params.require(:post).permit(:post_entry, :author, :user_id)
+    end
 end

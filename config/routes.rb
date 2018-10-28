@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   get 'challenge_accept' => 'challenge#accept'
   get 'challenge_decline' => 'challenge#decline'
 
+  post 'posts' => 'headquarters#create_posts'
+  get 'posts' => 'headquarters#posts'
+
   get 'main' => 'headquarters#main'
   get 'all_users' => 'headquarters#all_users'
   get 'show_user' => 'headquarters#show_user'

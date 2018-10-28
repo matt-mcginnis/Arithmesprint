@@ -17,9 +17,36 @@
             <p>Location: <%= current_user.location %></p>
             <p>Bio: <%= current_user.bio %></p>
         </div>
+
         <div class="col-md-7">
             <h2 id="feed">What Your Friends are Saying</h2>
+            <div>
+                <%= form_for @post do |f| %>
+            	<%= f.text_field :post_entry, placeholder: "Share something with your friends..." %><br />
+            	<%= f.hidden_field :author, value: current_user.username %><br />
+            	<%= f.hidden_field :user_id, value: current_user.id %><br />
+            	<%= f.submit "Post"%>
+                <% end %>
+            </div>
+            <h1>All the Posts</h1>
+
+            <table border="2">
+                <tr>
+                    <th>Post Entry</th>
+            	    <th>Author</th>
+                    <th>User ID</th>
+                </tr>
+
+                <% @posts.each do |post| %>
+                    <tr>
+                        <td><%= post.post_entry %></td>
+                        <td><%= post.author %></td>
+            	        <td><%= post.user_id %></td>
+            	</tr>
+                <% end %>
+            </table>
         </div>
+
         <div class="col-md-3" id="main_right">
             <h2>Pending Friend Requests</h2>
             <ul>
