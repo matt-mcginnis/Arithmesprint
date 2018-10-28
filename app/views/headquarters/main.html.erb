@@ -22,7 +22,7 @@
             <h2 id="feed">What Your Friends are Saying</h2>
             <div>
                 <%= form_for @post do |f| %>
-            	<%= f.text_field :post_entry, placeholder: "Share something with your friends..." %><br />
+            	<%= f.text_area :post_entry, placeholder: "Share something with your friends..." %><br />
             	<%= f.hidden_field :author, value: current_user.username %><br />
             	<%= f.hidden_field :user_id, value: current_user.id %><br />
             	<%= f.submit "Post"%>

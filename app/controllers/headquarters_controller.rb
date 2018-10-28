@@ -70,7 +70,7 @@ class HeadquartersController < ApplicationController
  # Posts Actions
   def create_posts
     post = Post.create(post_params)
-    redirect_to posts_path
+    redirect_to main_path
   end
 
   def posts
