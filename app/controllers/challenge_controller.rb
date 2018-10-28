@@ -1,6 +1,7 @@
 class ChallengeController < ApplicationController
     require 'problem'
 
+    # Create a Challenge
     def create
         category = params[:category]
         length = params[:length].to_i
@@ -22,10 +23,12 @@ class ChallengeController < ApplicationController
         redirect_to challenge_run_path(id: challenge.id)
     end
 
+    # Run a Challenge After it is Created
     def run
         @challenge = Challenge.find(params[:id])
     end
 
+    # Evaluate the Outcome of a Challenge
     def outcome
         @challenge = Challenge.find(params[:id])
 
@@ -46,6 +49,7 @@ class ChallengeController < ApplicationController
         @challenge.save
     end
 
+    # Invite a Player to a Challenge
     def invite
         # This is a wrapper method that calls on a challenge
         # to be created
@@ -53,6 +57,7 @@ class ChallengeController < ApplicationController
         @receiver = User.find(receiver_id)
     end
 
+    # Accept a Challenge Invitation From Another Player
     def accept
       challenge = Challenge.find(params[:id])
       issuer = User.find(challenge.issuer_id)
@@ -69,6 +74,7 @@ class ChallengeController < ApplicationController
       redirect_to challenge_run_path(id: challenge.id)
     end
 
+    # Decline a Challenge Invitation From Another Player
     def decline
       challenge = Challenge.find(params[:id])
       issuer = User.find(challenge.issuer_id)
