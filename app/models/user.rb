@@ -14,6 +14,8 @@ class User < ApplicationRecord
     serialize :pending_challenge_requests, Array
     serialize :pending_challenge_invitations, Array
 
+    has_many :posts
+
     mount_uploader :avatar, AvatarUploader
 
     def self.search(search)
