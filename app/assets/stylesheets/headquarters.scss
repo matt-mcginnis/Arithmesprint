@@ -52,15 +52,33 @@ div.container.container-main {
 }
 
 h2 {
-    color: var(--color-2);
+    color: var(--color-3);
 }
 
 h2#feed {
-    text-align: center;
+    margin-top: 10px;
+}
+
+.col-md-2#main_left p {
+    color: var(--color-2);
+}
+
+.col-md-2#main_left p b {
+    color: var(--color-8);
 }
 
 .col-md-3#main_right h2 {
     font-size: 24px;
+}
+
+.btn.btn-primary {
+    color: var(--color-7);
+    background-color: var(--color-2);
+}
+
+.btn.btn-primary:hover {
+    color: var(--color-8);
+    background-color: var(--color-3);
 }
 
 /* Requests and Invitations */
