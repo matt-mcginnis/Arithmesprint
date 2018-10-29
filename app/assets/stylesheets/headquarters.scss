@@ -70,6 +70,16 @@ h2#feed {
     font-size: 24px;
 }
 
+.col-lg-3#main_right .friends_list {
+    height: 45%;
+    overflow: auto;
+}
+
+.col-lg-3#main_right .friend_requests {
+    height: 45%;
+    overflow: auto;
+}
+
 textarea#post_post_entry.col-md-10 {
     padding-top: 5px;
     border-style: 1px var(--color-6) solid;

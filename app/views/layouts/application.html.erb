@@ -27,29 +27,29 @@
                 <% end %>
 
                     <ul class="nav navbar-nav navbar-right">
+                        <% if user_signed_in? && (current_user.pending_friend_requests.empty? == false || current_user.pending_friend_invitations.empty? == false || current_user.pending_challenge_requests.empty? == false || current_user.pending_challenge_invitations.empty? == false) %>
+
                         <li class="dropdown">
-                            <% if user_signed_in? %>
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Requests and Invitations<span class="caret"></span></a>
-                            <% end %>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Requests and Invitations<span class="caret"></span></a>
                             <ul class="dropdown-menu">
+                                <% if current_user.pending_friend_requests.empty? == false %>
+                                    <li><%= link_to "Friend Requests (#{current_user.pending_friend_requests.length})", requests_and_invitations_path, id: "navbar-requests" %></li>
+                                <% end %>
+                                <% if current_user.pending_friend_invitations.empty? == false %>
+                                    <li><%= link_to "Friend Invitations (#{current_user.pending_friend_invitations.length})", requests_and_invitations_path, id: "navbar-invitations" %></li>
+                                <% end %>
                                 <% if current_user != nil %>
-                                    <% if current_user.pending_friend_requests.empty? == false %>
-                                        <li><%= link_to "View Requests (#{current_user.pending_friend_requests.length})", requests_and_invitations_path, id: "navbar-requests" %></li>
+                                    <% if current_user.pending_challenge_requests.empty? == false %>
+                                        <li><%= link_to "Challenge Requests (#{current_user.pending_challenge_requests.length})", requests_and_invitations_path, id: "navbar-requests" %></li>
                                     <% end %>
-                                    <% if current_user.pending_friend_invitations.empty? == false %>
-                                        <li><%= link_to "View Invitations (#{current_user.pending_friend_invitations.length})", requests_and_invitations_path, id: "navbar-invitations" %></li>
-                                    <% end %>
-                                    <% if current_user != nil %>
-                                        <% if current_user.pending_challenge_requests.empty? == false %>
-                                            <li><%= link_to "Challenge Requests (#{current_user.pending_challenge_requests.length})", requests_and_invitations_path, id: "navbar-requests" %></li>
-                                        <% end %>
-                                        <% if current_user.pending_challenge_invitations.empty? == false %>
-                                            <li><%= link_to "Challenge Invitations (#{current_user.pending_challenge_invitations.length})", requests_and_invitations_path, id: "navbar-invitations" %></li>
-                                        <% end %>
+                                    <% if current_user.pending_challenge_invitations.empty? == false %>
+                                        <li><%= link_to "Challenge Invitations (#{current_user.pending_challenge_invitations.length})", requests_and_invitations_path, id: "navbar-invitations" %></li>
                                     <% end %>
                                 <% end %>
                             </ul>
                         </li>
+
+                        <% end %>
 
                         <li class="dropdown">
                             <% if current_user == nil %>

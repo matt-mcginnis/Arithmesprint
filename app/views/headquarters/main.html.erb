@@ -55,25 +55,26 @@
         <div class="col-lg-3" id="main_right">
             <% if !current_user.pending_friend_requests.empty? %>
                 <h2>Pending Friend Requests</h2>
-                <ul>
-                    <% current_user.pending_friend_requests.each do |request| %>
-                        <li>
-                            <%= User.find(request).name %>
-                            <%= link_to "Accept", friend_accept_path(id: request) %>
-                            <%= link_to "Decline", friend_decline_path(id: request) %>
-                        </li>
-                        <br>
-                    <% end %>
-                </ul>
+                    <div class="friend_requests">
+                        <% current_user.pending_friend_requests.each do |request| %>
+                            <div class="well">
+                                <%= User.find(request).name %>
+                                <%= link_to "Accept", friend_accept_path(id: request) %>
+                                <%= link_to "Decline", friend_decline_path(id: request) %>
+                            </div>
+                        <% end %>
+                    </div>
             <% end %>
             <h2>Friends List</h2>
-            <% current_user.friends.each do |friend| %>
-                <div class="well">
-                    <%= image_tag current_user.avatar.url, size: 50, class: "img-rounded", style: "margin-right: 5px;" %>
-                    <%= User.find(friend).name %>
-                    <%= link_to "Challenge", challenge_invite_path(receiver_id: friend) %>
-                </div>
-            <% end %>
+            <div class="friends_list">
+                <% current_user.friends.each do |friend| %>
+                    <div class="well">
+                        <%= image_tag current_user.avatar.url, size: 50, class: "img-rounded", style: "margin-right: 5px;" %>
+                        <%= User.find(friend).name %>
+                        <%= link_to "Challenge", challenge_invite_path(receiver_id: friend) %>
+                    </div>
+                <% end %>
+            </div>
         </div>
     </div>
 </div>
