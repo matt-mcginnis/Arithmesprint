@@ -25,12 +25,14 @@
 
         <div class="col-lg-7">
             <h2>Share Something With Your Friends</h2>
-            <%= form_for @post do |f| %>
-            	<%= f.text_area :post_entry, placeholder: "Share it here..." %><br />
-            	<%= f.hidden_field :author, value: current_user.username %><br />
-            	<%= f.hidden_field :user_id, value: current_user.id %><br />
-            	<%= f.submit %>
-            <% end %>
+            <div class="form-group">
+                <%= form_for @post do |f| %>
+                	<%= f.text_area :post_entry, placeholder: "Share it here...", class: "form-control" %>
+                	<%= f.hidden_field :author, value: current_user.username %>
+                	<%= f.hidden_field :user_id, value: current_user.id %>
+                	<%= f.submit "Share It!", class: "btn btn-primary", style: "float: right; margin-top: 8px; margin-bottom: 8px;" %>
+                <% end %>
+            </div>
 
             <h2 id="feed">What Your Friends are Saying</h2>
             <% @paginate_friend_posts.each do |post| %>
