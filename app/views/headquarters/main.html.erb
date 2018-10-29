@@ -13,6 +13,11 @@
         <div class="col-lg-2" id="main_left">
             <%= image_tag current_user.avatar.url, size: 195, class: "img-rounded" %>
             <h2><%= current_user.name %></h2>
+            <p>
+                <b>Wins:</b> <%= current_user.challenge_wins %>
+                <b>Ties:</b> <%= current_user.challenge_ties %>
+                <b>Losses:</b> <%= current_user.challenge_losses %>
+            </p>
             <p><b>Username:</b> <%= current_user.username %></p>
             <p><b>Location:</b> <%= current_user.location %></p>
             <p><b>Bio:</b> <%= current_user.bio %></p>
@@ -20,18 +25,14 @@
 
         <div class="col-lg-7">
             <h2>Share Something With Your Friends</h2>
-            <div class="row" style="padding-left: 15px; padding-right: 15px;">
-                <%= form_for @post do |f| %>
-                	<%= f.text_area :post_entry, placeholder: "Post it here...", class: "col-md-10", style: "margin-top: 5.75px;"%>
-                	<% f.hidden_field :author, value: current_user.username %>
-                	<% f.hidden_field :user_id, value: current_user.id %>
-                    <div class="col-md-2", style="display: flex; justify-content: center;">
-                	       <%= f.submit "Share It!", class: "btn btn-primary", style: "margin-top: 12.5px;"%>
-                    </div>
-                <% end %>
-            </div>
-            <h2 id="feed">What Your Friends are Saying</h2>
+            <%= form_for @post do |f| %>
+            	<%= f.text_area :post_entry, placeholder: "Share it here..." %><br />
+            	<%= f.hidden_field :author, value: current_user.username %><br />
+            	<%= f.hidden_field :user_id, value: current_user.id %><br />
+            	<%= f.submit %>
+            <% end %>
 
+            <h2 id="feed">What Your Friends are Saying</h2>
             <% @paginate_friend_posts.each do |post| %>
                 <div class="panel panel-default">
                     <div class="panel-body">

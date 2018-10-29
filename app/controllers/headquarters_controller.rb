@@ -3,12 +3,11 @@ class HeadquartersController < ApplicationController
 
   def main
     @post = Post.new
-    @posts = Post.all
 
     friend_posts = []
 
     Post.all.each do |post|
-        if current_user.friends.include?(post.user_id) || current_user.id == post.user_id
+        if (current_user.friends.include?(post.user_id)) || (current_user.id == post.user_id)
             friend_posts.push(post)
         end
     end
@@ -76,8 +75,6 @@ class HeadquartersController < ApplicationController
       redirect_to root_path
   end
 
-
- # Posts Actions
   def create_posts
     post = Post.create(post_params)
     redirect_to main_path

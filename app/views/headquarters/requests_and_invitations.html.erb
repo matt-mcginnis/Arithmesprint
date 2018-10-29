@@ -9,26 +9,22 @@
         <div class="col-md-12">
             <div class="col-md-3" id="requests_and_invitations">
                 <h2>Pending Challenge Requests</h2>
-                <ul>
-                    <% current_user.pending_challenge_requests.each do |challenge| %>
-                    <li>
+                <% current_user.pending_challenge_requests.each do |challenge| %>
+                    <div class="well">
                         <%= User.find(Challenge.find(challenge).issuer_id).name %>
                         <%= link_to "Accept", challenge_accept_path(id: challenge) %>
                         <%= link_to "Decline", challenge_decline_path(id: challenge) %>
-                    </li>
-                    <% end %>
-                </ul>
+                    </div>
+                <% end %>
             </div>
 
             <div class="col-md-3" id="requests_and_invitations">
                 <h2>Pending Challenge Invitations</h2>
-                <ul>
-                    <% current_user.pending_challenge_invitations.each do |invitation| %>
-                    <li>
+                <% current_user.pending_challenge_invitations.each do |invitation| %>
+                    <div class="well">
                         The challenge sent to <%= User.find(Challenge.find(invitation).receiver_id).name %> is currently pending.
-                    </li>
-                    <% end %>
-                </ul>
+                    </div>
+                <% end %>
             </div>
 
 
