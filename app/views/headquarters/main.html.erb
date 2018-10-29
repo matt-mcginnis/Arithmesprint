@@ -48,26 +48,29 @@
                     </div>
                 </div>
             <% end %>
+            <%= link_to_prev_page @paginate_friend_posts, 'Previous Page', id: "page_navigation" %>
+            <%= link_to_next_page @paginate_friend_posts, 'Next Page', id: "page_navigation" %>
         </div>
 
         <div class="col-lg-3" id="main_right">
-            <h2>Pending Friend Requests</h2>
-            <ul>
-                <% current_user.pending_friend_requests.each do |request| %>
-                    <li>
-                        <%= User.find(request).name %>
-                        <%= link_to "Accept", friend_accept_path(id: request) %>
-                        <%= link_to "Decline", friend_decline_path(id: request) %>
-                    </li>
-                    <br>
-                <% end %>
-            </ul>
-
+            <% if !current_user.pending_friend_requests.empty? %>
+                <h2>Pending Friend Requests</h2>
+                <ul>
+                    <% current_user.pending_friend_requests.each do |request| %>
+                        <li>
+                            <%= User.find(request).name %>
+                            <%= link_to "Accept", friend_accept_path(id: request) %>
+                            <%= link_to "Decline", friend_decline_path(id: request) %>
+                        </li>
+                        <br>
+                    <% end %>
+                </ul>
+            <% end %>
             <h2>Friends List</h2>
-
             <ul>
                 <% current_user.friends.each do |friend| %>
                     <li><%= User.find(friend).name %></li>
+                    <%= link_to "Challenge", challenge_invite_path(receiver_id: friend) %>
                     <br>
                 <% end %>
             </ul>
