@@ -10,7 +10,7 @@
 
 <div class="container container-main">
     <div class="row row-main">
-        <div class="col-md-2" id="main_left">
+        <div class="col-lg-2" id="main_left">
             <%= image_tag current_user.avatar.url, size: 195, class: "img-rounded" %>
             <h2><%= current_user.name %></h2>
             <p><b>Username:</b> <%= current_user.username %></p>
@@ -18,36 +18,39 @@
             <p><b>Bio:</b> <%= current_user.bio %></p>
         </div>
 
-        <div class="col-md-7">
-            <div class="form-group">
+        <div class="col-lg-7">
+            <h2>Share Something With Your Friends</h2>
+            <div class="row" style="padding-left: 15px; padding-right: 15px;">
                 <%= form_for @post do |f| %>
-                	<%= f.text_area :post_entry, placeholder: "Share something with your friends...", class: "form-control" %>
+                	<%= f.text_area :post_entry, placeholder: "Post it here...", class: "col-md-10", style: "margin-top: 5.75px;"%>
                 	<% f.hidden_field :author, value: current_user.username %>
                 	<% f.hidden_field :user_id, value: current_user.id %>
-                	<%= f.submit "Share It!", class: "btn btn-primary", style: "float: right; margin-top: 10px;"%>
+                    <div class="col-md-2", style="display: flex; justify-content: center;">
+                	       <%= f.submit "Share It!", class: "btn btn-primary", style: "margin-top: 12.5px;"%>
+                    </div>
                 <% end %>
             </div>
             <h2 id="feed">What Your Friends are Saying</h2>
-            <h1>All the Posts</h1>
 
-            <table border="2">
-                <tr>
-                    <th>Post Entry</th>
-            	    <th>Author</th>
-                    <th>User ID</th>
-                </tr>
-
-                <% @posts.each do |post| %>
-                    <tr>
-                        <td><%= post.post_entry %></td>
-                        <td><%= post.author %></td>
-            	        <td><%= post.user_id %></td>
-            	</tr>
-                <% end %>
-            </table>
+            <% @paginate_friend_posts.each do |post| %>
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div style="display: flex; justify-content: space-between;">
+                            <p><b><%= link_to post.user.username, show_user_path(id: post.user.id) %></b></p>
+                            <p>
+                                <b>
+                                    <%= "Posted " + time_ago_in_words(post.created_at) + " ago" if Time.now - post.created_at < 86400 %>
+                                    <%= post.created_at.strftime('%b %e') if Time.now - post.created_at >= 86400 %>
+                                </b>
+                            </p>
+                        </div>
+                        <p><%= post.post_entry.html_safe %></p>
+                    </div>
+                </div>
+            <% end %>
         </div>
 
-        <div class="col-md-3" id="main_right">
+        <div class="col-lg-3" id="main_right">
             <h2>Pending Friend Requests</h2>
             <ul>
                 <% current_user.pending_friend_requests.each do |request| %>

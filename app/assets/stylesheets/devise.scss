@@ -14,14 +14,10 @@ div.container.login-container {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: linear-gradient(to top right, var(--color-4), var(--color-5));
-    background-repeat: no-repeat;
-    background-size: cover;
     width: 100%;
     padding-top: 15%;
     padding-bottom: 15%;
     margin-top: 0px;
-    overflow: auto;
 }
 
 
@@ -67,14 +63,10 @@ div.container.signup-container {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: linear-gradient(to top right, var(--color-4), var(--color-5));
-    background-repeat: no-repeat;
-    background-size: cover;
     width: 100%;
     padding-top: 4%;
     padding-bottom: 4%;
     margin-top: 0px;
-    overflow: auto;
 }
 
 .signup-col {
@@ -119,14 +111,10 @@ div.container.edit-container {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: linear-gradient(to top right, var(--color-4), var(--color-5));
-    background-repeat: no-repeat;
-    background-size: cover;
     width: 100%;
     padding-top: 0.95%;
     padding-bottom: 0.95%;
     margin-top: 0px;
-    overflow: auto;
 }
 
 .edit-col {

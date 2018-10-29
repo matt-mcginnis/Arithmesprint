@@ -4,6 +4,16 @@ class HeadquartersController < ApplicationController
   def main
     @post = Post.new
     @posts = Post.all
+
+    friend_posts = []
+
+    Post.all.each do |post|
+        if current_user.friends.include?(post.user_id) || current_user.id == post.user_id
+            friend_posts.push(post)
+        end
+    end
+
+    @paginate_friend_posts = Kaminari.paginate_array(friend_posts.reverse).page(params[:page]).per(3)
   end
 
   def all_users
