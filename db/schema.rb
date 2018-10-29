@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_29_175338) do
+ActiveRecord::Schema.define(version: 2018_10_29_185159) do
 
   create_table "challenges", force: :cascade do |t|
     t.string "category"
@@ -60,9 +60,6 @@ ActiveRecord::Schema.define(version: 2018_10_29_175338) do
     t.text "pending_challenge_requests"
     t.text "pending_challenge_invitations"
     t.text "challenges"
-    t.integer "challenge_wins"
-    t.integer "challenge_ties"
-    t.integer "challenge_losses"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
