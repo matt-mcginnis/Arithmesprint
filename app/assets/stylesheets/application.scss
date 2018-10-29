@@ -62,8 +62,6 @@ nav.navbar.navbar-default {
 .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
     color: var(--color-3);
     background-color: var(--color-7);
-    padding-bottom: 0;
-    padding-top: 15px;
 }
 
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
@@ -71,7 +69,6 @@ nav.navbar.navbar-default {
 }
 
 .navbar-nav > li > .dropdown-menu {
-    padding: 0;
     background-color: var(--color-1);
 }
 

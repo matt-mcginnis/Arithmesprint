@@ -17,17 +17,6 @@
                     <%= link_to "Arithmesprint", root_path, class: "navbar-brand" %>
                 </div>
 
-                <ul class="nav navbar-nav navbar-left">
-                    <% if current_user != nil %>
-                        <% if current_user.pending_challenge_requests.empty? == false %>
-                            <li><%= link_to "Challenge Requests (#{current_user.pending_challenge_requests.length})", requests_and_invitations_path, id: "navbar-requests" %></li>
-                        <% end %>
-                        <% if current_user.pending_challenge_invitations.empty? == false %>
-                            <li><%= link_to "Challenge Invitations (#{current_user.pending_challenge_invitations.length})", requests_and_invitations_path, id: "navbar-invitations" %></li>
-                        <% end %>
-                    <% end %>
-                </ul>
-
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <%= form_tag(all_users_path, :method => "get", id: "search-form", class: "navbar-form navbar-left") do %>
@@ -38,15 +27,30 @@
                 <% end %>
 
                     <ul class="nav navbar-nav navbar-right">
-                        <% if current_user != nil %>
-                            <li><%= image_tag current_user.avatar.url, size: 50, class: "img-circle" %></li>
-                            <% if current_user.pending_friend_requests.empty? == false %>
-                                <li><%= link_to "View Requests (#{current_user.pending_friend_requests.length})", requests_and_invitations_path, id: "navbar-requests" %></li>
+                        <li class="dropdown">
+                            <% if user_signed_in? %>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Requests and Invitations<span class="caret"></span></a>
                             <% end %>
-                            <% if current_user.pending_friend_invitations.empty? == false %>
-                                <li><%= link_to "View Invitations (#{current_user.pending_friend_invitations.length})", requests_and_invitations_path, id: "navbar-invitations" %></li>
-                            <% end %>
-                        <% end %>
+                            <ul class="dropdown-menu">
+                                <% if current_user != nil %>
+                                    <% if current_user.pending_friend_requests.empty? == false %>
+                                        <li><%= link_to "View Requests (#{current_user.pending_friend_requests.length})", requests_and_invitations_path, id: "navbar-requests" %></li>
+                                    <% end %>
+                                    <% if current_user.pending_friend_invitations.empty? == false %>
+                                        <li><%= link_to "View Invitations (#{current_user.pending_friend_invitations.length})", requests_and_invitations_path, id: "navbar-invitations" %></li>
+                                    <% end %>
+                                    <% if current_user != nil %>
+                                        <% if current_user.pending_challenge_requests.empty? == false %>
+                                            <li><%= link_to "Challenge Requests (#{current_user.pending_challenge_requests.length})", requests_and_invitations_path, id: "navbar-requests" %></li>
+                                        <% end %>
+                                        <% if current_user.pending_challenge_invitations.empty? == false %>
+                                            <li><%= link_to "Challenge Invitations (#{current_user.pending_challenge_invitations.length})", requests_and_invitations_path, id: "navbar-invitations" %></li>
+                                        <% end %>
+                                    <% end %>
+                                <% end %>
+                            </ul>
+                        </li>
+
                         <li class="dropdown">
                             <% if current_user == nil %>
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Login<span class="caret"></span></a>
@@ -63,6 +67,9 @@
                                 <% end %>
                             </ul>
                         </li>
+                        <% if current_user != nil %>
+                            <li><%= image_tag current_user.avatar.url, size: 50, class: "img-circle", style: "margin-left: 15px; margin-right: 15px;" %></li>
+                        <% end %>
                     </ul>
                 </div>
         <!-- /.navbar-collapse -->
