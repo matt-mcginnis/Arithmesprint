@@ -1,2 +1,13 @@
-<h1>Headquarters#friend_invite</h1>
-<p>Find me in app/views/headquarters/friend_invite.html.erb</p>
+<div class="container container-friend-invite">
+    <div class="col-md-6">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <h1 style="text-align: center;">Success!</h1>
+                <p style="text-align: center;">
+                    Your friend request to <%= link_to @invited.username, show_user_path(id: @invited.id) %> has been sent.
+                </p>
+            </div>
+        </div>
+
+    </div>
+</div>

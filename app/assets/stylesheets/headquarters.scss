@@ -157,6 +157,16 @@ div.container.container-all-users {
     margin-top: 0px;
 }
 
+/* Friend Invite */
+div.container.container-friend-invite {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding-top: 18%;
+}
+
+
 @media only screen and (max-width: 1560px), only screen and (min-width: 1500px) {
     .col-lg-7 {
         padding-left: 60px;

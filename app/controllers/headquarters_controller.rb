@@ -31,8 +31,6 @@ class HeadquartersController < ApplicationController
 
       @invited.save
       current_user.save
-
-      redirect_to root_path
   end
 
   def friend_accept
