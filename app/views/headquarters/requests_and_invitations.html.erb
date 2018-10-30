@@ -8,18 +8,18 @@
     <div class="row" id="requests_and_invitations">
         <div class="col-md-12">
             <div class="col-md-3" id="requests_and_invitations">
-                <h2>Pending Challenge Requests</h2>
+                <h2 style="text-align: center;">Pending Challenge Requests</h2>
                 <% current_user.pending_challenge_requests.each do |challenge| %>
                     <div class="well">
                         <%= User.find(Challenge.find(challenge).issuer_id).name %>
-                        <%= link_to "Accept", challenge_accept_path(id: challenge) %>
-                        <%= link_to "Decline", challenge_decline_path(id: challenge) %>
+                        <%= link_to "Accept", challenge_accept_path(id: challenge), class: "btn btn-success" %>
+                        <%= link_to "Decline", challenge_decline_path(id: challenge), class: "btn btn-danger" %>
                     </div>
                 <% end %>
             </div>
 
             <div class="col-md-3" id="requests_and_invitations">
-                <h2>Pending Challenge Invitations</h2>
+                <h2 style="text-align: center;">Pending Challenge Invitations</h2>
                 <% current_user.pending_challenge_invitations.each do |invitation| %>
                     <div class="well">
                         The challenge sent to <%= User.find(Challenge.find(invitation).receiver_id).name %> is currently pending.
@@ -29,7 +29,7 @@
 
 
             <div class="col-md-3" id="requests_and_invitations">
-                <h2>Pending Friend Requests</h2>
+                <h2 style="text-align: center;">Pending Friend Requests</h2>
 
                  <% current_user.pending_friend_requests.each do |request| %>
                          <div class="well" id="requests">
@@ -41,7 +41,7 @@
             </div>
 
             <div class="col-md-3" id="requests_and_invitations">
-                <h2>Pending Friend Invites</h2>
+                <h2 style="text-align: center;">Pending Friend Invites</h2>
 
                 <% current_user.pending_friend_invitations.each do |invitation| %>
                         <div class="well" id="invitations">
