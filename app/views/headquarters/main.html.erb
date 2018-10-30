@@ -74,9 +74,9 @@
                         <div class="well well-friends-list">
                             <div>
                                 <%= user_avatar_helper(User.find(friend), 50, "img-rounded", "margin-right: 5px;") %>
-                                <%= User.find(friend).name %>
+                                <%= link_to User.find(friend).name, show_user_path(id: friend) %>
                             </div>
-                            <%= link_to "Challenge", challenge_invite_path(receiver_id: friend), style: "text-align: right;" %>
+                            <%= link_to "Challenge", challenge_invite_path(receiver_id: friend), class: "btn btn-primary", style: "text-align: right;" %>
                         </div>
                     <% end %>
                 </div>

@@ -30,7 +30,11 @@
                         <% if user_signed_in? && (current_user.pending_friend_requests.empty? == false || current_user.pending_friend_invitations.empty? == false || current_user.pending_challenge_requests.empty? == false || current_user.pending_challenge_invitations.empty? == false) %>
 
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Requests and Invitations<span class="caret"></span></a>
+                            <% if !current_user.pending_friend_requests.empty? || !current_user.pending_challenge_requests.empty? %>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><strong>(New)</strong> Requests and Invitations<span class="caret"></span></a>
+                            <% else %>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Requests and Invitations<span class="caret"></span></a>
+                            <% end %>
                             <ul class="dropdown-menu">
                                 <% if current_user.pending_friend_requests.empty? == false %>
                                     <li><%= link_to "Friend Requests (#{current_user.pending_friend_requests.length})", requests_and_invitations_path, id: "navbar-requests" %></li>

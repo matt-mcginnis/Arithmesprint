@@ -158,6 +158,16 @@ div.container.container-all-users {
     margin-top: 0px;
 }
 
+/* Show User */
+div.container.container-show-user {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding-top: 5%;
+}
+
+
 /* Friend Invite */
 div.container.container-friend-invite {
     display: flex;

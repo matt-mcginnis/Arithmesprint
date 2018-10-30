@@ -1,8 +1,20 @@
-<h1><%= @user.name %></h1>
+<div class="jumbotron">
+    <h1><%= @user.username %></h1>
+</div>
 
-<ul>
-    <li><%= @user.username %></li>
-    <li><%= @user.email %></li>
-    <li><%= @user.location %></li>
-    <li><%= @user.bio %></li>
-</ul>
+<div class="container container-show-user">
+    <div class="col-md-3">
+        <div class="well">
+            <%= user_avatar_helper(@user, 219, "img-rounded") %>
+            <h2><%= @user.name %></h2>
+            <p>
+                <b>Wins:</b> <%= @user.challenge_wins %>
+                <b>Ties:</b> <%= @user.challenge_ties %>
+                <b>Losses:</b> <%= @user.challenge_losses %>
+            </p>
+            <p><b>Username:</b> <%= @user.username %></p>
+            <p><b>Location:</b> <%= @user.location %></p>
+            <p><b>Bio:</b> <%= @user.bio %></p>
+        </div>
+    </div>
+</div>
