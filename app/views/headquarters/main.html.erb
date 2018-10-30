@@ -72,7 +72,7 @@
             <div class="friends_list">
                 <% current_user.friends.each do |friend| %>
                     <div class="well">
-                        <%= image_tag current_user.avatar.url, size: 50, class: "img-rounded", style: "margin-right: 5px;" %>
+                        <%= image_tag User.find(friend).avatar.url, size: 50, class: "img-rounded", style: "margin-right: 5px;" %>
                         <%= User.find(friend).name %>
                         <%= link_to "Challenge", challenge_invite_path(receiver_id: friend) %>
                     </div>
