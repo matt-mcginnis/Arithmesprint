@@ -5,10 +5,24 @@
 <div class="separator"></div>
 
 <div class="container container-run">
-    <%= form_tag(outcome_path(id: @challenge.id)) do %>
-        <% @challenge.problem_array.each_with_index do |problem, index| %>
-            <p><%= problem.question %> <%= text_field_tag ("user_answer_#{index}").to_sym %></p>
-        <% end %>
-        <%= submit_tag "Submit" %>
-    <% end %>
+    <div class="row">
+		<div class="well", style="background-color: var(--color-6); margin-top: 40%; width: 300px;">
+            <h2 style="text-align: center; margin-top: 5px; margin-bottom: 20px;">Problem Set</h2>
+            <%= form_tag(outcome_path(id: @challenge.id)) do %>
+                <% @challenge.problem_array.each_with_index do |problem, index| %>
+                    <div class="row", style="display: flex; align-items: center; margin-top: 10px; margin-bottom: 10px;">
+                        <div class="col-md-6", style="text-align: right; font-size: 18px; color: var(--color-8);">
+                            <%= problem.question %>
+                        </div>
+                        <div class="col-md-6">
+                            <%= text_field_tag ("user_answer_#{index}").to_sym, nil, class: "form-control", style: "width: 50px;" %>
+                        </div>
+                    </div>
+                <% end %>
+            <div class="row row-challenge-run-submit">
+                    <%= submit_tag "Submit", class: "btn btn-primary" %>
+                <% end %>
+            </div>
+        </div>
+    </div>
 </div>
