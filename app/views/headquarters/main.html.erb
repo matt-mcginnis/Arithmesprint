@@ -61,6 +61,7 @@
                     <div class="friend_requests">
                         <% current_user.pending_friend_requests.each do |request| %>
                             <div class="well">
+                                <%= user_avatar_helper(User.find(request), 50, "img-rounded", "margin-right: 5px;") %>
                                 <%= User.find(request).name %>
                                 <%= link_to "Accept", friend_accept_path(id: request) %>
                                 <%= link_to "Decline", friend_decline_path(id: request) %>
@@ -68,16 +69,20 @@
                         <% end %>
                     </div>
             <% end %>
-            <h2>Friends List</h2>
-            <div class="friends_list">
-                <% current_user.friends.each do |friend| %>
-                    <div class="well">
-                        <%= user_avatar_helper(User.find(friend), 50, "img-rounded", "margin-right: 5px;") %>
-                        <%= User.find(friend).name %>
-                        <%= link_to "Challenge", challenge_invite_path(receiver_id: friend) %>
-                    </div>
-                <% end %>
-            </div>
+            <% if !current_user.friends.empty? %>
+                <h2>Friends List</h2>
+                <div class="friends_list">
+                    <% current_user.friends.each do |friend| %>
+                        <div class="well well-friends-list">
+                            <div>
+                                <%= user_avatar_helper(User.find(friend), 50, "img-rounded", "margin-right: 5px;") %>
+                                <%= User.find(friend).name %>
+                            </div>
+                            <%= link_to "Challenge", challenge_invite_path(receiver_id: friend), style: "text-align: right;" %>
+                        </div>
+                    <% end %>
+                </div>
+            <% end %>
         </div>
     </div>
 </div>
