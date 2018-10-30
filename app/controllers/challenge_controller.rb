@@ -42,8 +42,38 @@ class ChallengeController < ApplicationController
 
         if current_user.id == @challenge.issuer_id
             @challenge.update(issuer_score: score)
+            @challenge.save
         else
             @challenge.update(receiver_score: score)
+            @challenge.save
+
+            issuer = User.find(@challenge.issuer_id)
+            receiver = User.find(@challenge.receiver_id)
+
+            issuer_wins = User.find(@challenge.issuer_id).challenge_wins
+            issuer_losses = User.find(@challenge.issuer_id).challenge_losses
+            issuer_ties = User.find(@challenge.issuer_id).challenge_ties
+
+            receiver_wins = User.find(@challenge.receiver_id).challenge_wins
+            receiver_losses = User.find(@challenge.receiver_id).challenge_losses
+            receiver_ties = User.find(@challenge.receiver_id).challenge_ties
+
+            if @challenge.issuer_score > @challenge.receiver_score
+                issuer.update(challenge_wins: issuer_wins + 1)
+                receiver.update(challenge_losses: receiver_losses + 1)
+                issuer.save
+                receiver.save
+            elsif @challenge.issuer_score < @challenge.receiver_score
+                issuer.update(challenge_losses: issuer_losses + 1)
+                receiver.update(challenge_wins: receiver_wins + 1)
+                issuer.save
+                receiver.save
+            else
+                issuer.update(challenge_ties: issuer_ties + 1)
+                receiver.update(challenge_ties: receiver_ties + 1)
+                issuer.save
+                receiver.save
+            end
         end
 
         @challenge.save
