@@ -15,6 +15,10 @@
             <p><b>Username:</b> <%= @user.username %></p>
             <p><b>Location:</b> <%= @user.location %></p>
             <p><b>Bio:</b> <%= @user.bio %></p>
+            <p>
+                <%= link_to "Back", url_for(:back) %> | 
+                <%= link_to "Headquarters", root_path %>
+            </p>
         </div>
     </div>
 </div>

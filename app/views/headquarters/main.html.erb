@@ -13,10 +13,11 @@
         <div class="col-lg-2" id="main_left">
             <%= user_avatar_helper(current_user, 219, "img-rounded") %>
             <h2><%= current_user.name %></h2>
-            <p>
-                <b>Wins:</b> <%= current_user.challenge_wins %>
-                <b>Ties:</b> <%= current_user.challenge_ties %>
-                <b>Losses:</b> <%= current_user.challenge_losses %>
+            <p style="display: flex; justify-content: space-between;">
+
+                <span><b>Wins:</b> <%= current_user.challenge_wins %></span>
+                <span><b>Ties:</b> <%= current_user.challenge_ties %></span>
+                <span><b>Losses:</b> <%= current_user.challenge_losses %></span>
             </p>
             <p><b>Username:</b> <%= current_user.username %></p>
             <p><b>Location:</b> <%= current_user.location %></p>
@@ -37,16 +38,18 @@
             <h2 id="feed">What Your Friends are Saying</h2>
             <% @paginate_friend_posts.each do |post| %>
                 <div class="panel panel-default">
-                    <div class="panel-body">
-                        <div style="display: flex; justify-content: space-between;">
-                            <p><b><%= link_to post.user.username, show_user_path(id: post.user.id) %></b></p>
-                            <p>
+                    <div class="panel-heading">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <p style="margin-bottom: 0"><b><%= user_avatar_helper(post.user, 40, "img-rounded") %> <%= link_to post.user.username, show_user_path(id: post.user.id) %></b></p>
+                            <p style="margin-bottom: 0">
                                 <b>
                                     <%= "Posted " + time_ago_in_words(post.created_at) + " ago" if Time.now - post.created_at < 86400 %>
                                     <%= post.created_at.strftime('%b %e') if Time.now - post.created_at >= 86400 %>
                                 </b>
                             </p>
                         </div>
+                    </div>
+                    <div class="panel-body">
                         <p><%= post.post_entry.html_safe %></p>
                     </div>
                 </div>

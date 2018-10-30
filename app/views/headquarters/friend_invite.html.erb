@@ -6,6 +6,10 @@
                 <p style="text-align: center;">
                     Your friend request to <%= link_to @invited.username, show_user_path(id: @invited.id) %> has been sent.
                 </p>
+                <p style="text-align: center;">
+                    <%= link_to "Back", url_for(:back) %> | 
+                    <%= link_to "Headquarters", root_path %>
+                </p>
             </div>
         </div>
     </div>
