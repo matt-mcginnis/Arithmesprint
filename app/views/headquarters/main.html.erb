@@ -11,7 +11,7 @@
 <div class="container container-main">
     <div class="row row-main">
         <div class="col-lg-2" id="main_left">
-            <%= image_tag current_user.avatar.url, size: 195, class: "img-rounded" %>
+            <%= user_avatar_helper(current_user, 219, "img-rounded") %>
             <h2><%= current_user.name %></h2>
             <p>
                 <b>Wins:</b> <%= current_user.challenge_wins %>
@@ -72,7 +72,7 @@
             <div class="friends_list">
                 <% current_user.friends.each do |friend| %>
                     <div class="well">
-                        <%= image_tag User.find(friend).avatar.url, size: 50, class: "img-rounded", style: "margin-right: 5px;" %>
+                        <%= user_avatar_helper(User.find(friend), 50, "img-rounded", "margin-right: 5px;") %>
                         <%= User.find(friend).name %>
                         <%= link_to "Challenge", challenge_invite_path(receiver_id: friend) %>
                     </div>

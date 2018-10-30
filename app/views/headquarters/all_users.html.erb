@@ -10,15 +10,17 @@
             <div class="col-md-2">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <%= image_tag user.avatar.url, size: 40, class: "img-rounded" %>
+                    <%= user_avatar_helper(user, 40, "img-rounded") %>
                     <%=link_to user.name, show_user_path(id: user.id) %>
                 </div>
                 <div class="panel-body">
                     <p><b>Email:</b> <%= user.email %></p>
                     <p><b>Username:</b> <%= user.username %></p>
                     <% if current_user.friends.include? user.id %>
-                        <%= link_to "Unfriend", unfriend_path(id: user.id) %><br>
-                        <%= link_to "Challenge", challenge_invite_path(receiver_id: user.id) %>
+                        <p>
+                            <%= link_to "Unfriend", unfriend_path(id: user.id) %>
+                            <%= link_to "Challenge", challenge_invite_path(receiver_id: user.id) %>
+                        </p>
                     <% elsif current_user.pending_friend_invitations.include? user.id %>
                         <p><b>Friend Invitation:</b> Awaiting Response</p>
                     <% else %>

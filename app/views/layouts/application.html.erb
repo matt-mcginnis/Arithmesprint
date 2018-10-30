@@ -68,7 +68,7 @@
                             </ul>
                         </li>
                         <% if current_user != nil %>
-                            <li><%= image_tag current_user.avatar.url, size: 50, class: "img-circle", style: "margin-left: 15px; margin-right: 15px;" %></li>
+                            <li><%= user_avatar_helper(current_user, 50, "img-circle", "margin-left: 15px; margin-right: 15px;") %></li>
                         <% end %>
                     </ul>
                 </div>
