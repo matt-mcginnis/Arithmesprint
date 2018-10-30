@@ -14,6 +14,7 @@
             <div class="panel-body">
                 <p>Your Score: <%= @challenge.receiver_score %></p>
                 <p><%= User.find(@challenge.issuer_id).username %>'s Score: <%= @challenge.issuer_score %></p>
+                <p>Return to <%= link_to "Headquarters", root_path %></p>
             </div>
         </div>
     <% else %>
@@ -24,6 +25,7 @@
             <div class="panel-body">
                 <p><strong>Your Score:</strong> <%= @challenge.issuer_score %></p>
                 <p>Currently waiting for <%= User.find(@challenge.receiver_id).username %> to accept the challenge.</p>
+                <p>Return to <%= link_to "Headquarters", root_path %></p>
             </div>
         </div>
     <% end %>
