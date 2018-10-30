@@ -98,6 +98,11 @@ div.container.container-requests-and-invitations {
     margin-top: 0px;
 }
 
+div.friends_list {
+    height: 300px;
+    overflow: auto;
+}
+
 div.well.well-friends-list {
     display: flex;
     align-items: center;

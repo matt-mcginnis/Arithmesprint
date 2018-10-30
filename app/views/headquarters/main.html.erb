@@ -58,16 +58,14 @@
         <div class="col-lg-3" id="main_right">
             <% if !current_user.pending_friend_requests.empty? %>
                 <h2>Pending Friend Requests</h2>
-                    <div class="friend_requests">
-                        <% current_user.pending_friend_requests.each do |request| %>
-                            <div class="well">
-                                <%= user_avatar_helper(User.find(request), 50, "img-rounded", "margin-right: 5px;") %>
-                                <%= User.find(request).name %>
-                                <%= link_to "Accept", friend_accept_path(id: request) %>
-                                <%= link_to "Decline", friend_decline_path(id: request) %>
-                            </div>
-                        <% end %>
-                    </div>
+                    <% current_user.pending_friend_requests.each do |request| %>
+                        <div class="well">
+                            <%= user_avatar_helper(User.find(request), 50, "img-rounded", "margin-right: 5px;") %>
+                            <%= User.find(request).name %>
+                            <%= link_to "Accept", friend_accept_path(id: request) %>
+                            <%= link_to "Decline", friend_decline_path(id: request) %>
+                        </div>
+                    <% end %>
             <% end %>
             <% if !current_user.friends.empty? %>
                 <h2>Friends List</h2>
